@@ -1,0 +1,38 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+$presentation-font-size-root: 30px; 
+
+/*-- scss:rules --*/
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  text-transform: none;
+  color: #1c3b57 !important; /* Forzamos el color directamente en las etiquetas */
+}
+
+.theorem-box {
+  border-left: 4px solid #1c3b57;
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.proof-box {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+.math-display {
+  font-size: 1em; 
+}
+
+.reveal {
+  /* Carga ambas imágenes separadas por coma */
+  background-image: url('logo-mods.png'), url('logo-mods.png');
+  
+  /* Posición: izquierda abajo y derecha abajo (con 20px de margen a los bordes) */
+  background-position: left 20px bottom 20px, right 20px bottom 20px;
+  
+  /* Tamaño de cada logo respectivo */
+  background-size: 120px, 120px;
+  background-repeat: no-repeat, no-repeat;
+}

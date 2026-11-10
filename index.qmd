@@ -1,0 +1,511 @@
+---
+title: "Bimarcos en Espacios con Métrica Indefinida"
+subtitle: "Encuentro Internacional de Matemáticas (EIMAT)<br>Universidad del Atlántico <br>![](logo-mods.png){width=150px}"
+author:
+  - name: Osmín Ferrer Villar
+    email: osmin.ferrer@unisucre.org
+    affiliations:
+      - name: Universidad de Sucre
+  - name: Ader Villar Ortega
+    email: ader.villar@modsinstitute.org
+    affiliations:
+      - name: Corporación MODS
+        city: Montería - Córdoba
+date: "2026-11-12"
+logo: logo-mods.png 
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    transition: fade
+    slide-number: true
+    mathjax: true
+    center: true
+    fig-align: center
+    highlight-style: github
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+
+```{r}
+#| label: load-packages
+library(ggplot2)
+library(plotly)
+library(knitr)
+# En caso de requerir tablas interactivas avanzadas vía HTML/JS, 
+# se puede integrar la librería htmlwidgets o reactable.
+```
+
+## 1. De los Espacios de Hilbert a la Métrica Indefinida
+
+El análisis funcional clásico se cimenta en la geometría de los espacios de Hilbert, donde el producto interno induce una métrica definida positiva. Sin embargo, diversos problemas físicos y matemáticos exigen relajar esta condición geométrica.
+
+*   **Espacio con producto interno indefinido:** Un espacio vectorial complejo $\mathcal{K}$ equipado con una forma sesquilineal hermítica $[\cdot, \cdot]$ que no necesariamente satisface $[x,x] > 0$ para $x \neq 0$[cite: 53].
+*   Los vectores se clasifican geométricamente en función de su norma cuadrada isotrópica:
+    *   **Positivos:** $[x,x] > 0$
+    *   **Negativos:** $[x,x] < 0$
+    *   **Neutros (Isotrópicos):** $[x,x] = 0$ con $x \neq 0$
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 1]
+- Iniciar agradeciendo la asistencia y presentando el objetivo de la charla.
+- Explicar la motivación conceptual: En un espacio de Hilbert, la distancia geométrica siempre es estricta y positiva. En espacios con métrica indefinida (como el espacio-tiempo de Minkowski), existen vectores no nulos cuya "longitud" o energía es cero o negativa.
+- Hacer énfasis en la clasificación de los vectores (positivos, negativos, neutros), ya que el cono isotrópico (vectores neutros) es lo que divide geométricamente el espacio y rompe la topología tradicional de Hilbert.
+</aside>
+
+
+## Estructura del Espacio de Krein
+
+Para establecer un marco topológico completo sobre una métrica indefinida, se requiere una descomposición ortogonal estructurada.
+
+<div class="theorem-box">
+**Definición (Espacio de Krein):**
+Un espacio vectorial $\mathcal{K}$ con producto interno indefinido $[\cdot, \cdot]$ es un espacio de Krein si admite una descomposición en suma directa ortogonal[cite: 59]:
+$$ \mathcal{K} = \mathcal{K}^{+} [+] \mathcal{K}^{-} $$
+donde $(\mathcal{K}^{+}, [\cdot, \cdot])$ y $(\mathcal{K}^{-}, -[\cdot, \cdot])$ son espacios de Hilbert de manera independiente.
+</div>
+
+*   El símbolo $[+]$ denota que la suma directa es ortogonal respecto al producto interno indefinido $[\cdot, \cdot]$[cite: 59].
+*   A esta descomposición se le asocian los proyectores ortogonales $P^{+}$ y $P^{-}$ sobre $\mathcal{K}^{+}$ y $\mathcal{K}^{-}$ respectivamente.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 2]
+- Aclarar que no cualquier espacio con métrica indefinida es un espacio de Krein; la condición sine qua non es que se pueda particionar en dos subespacios que, de forma aislada, se comporten como espacios de Hilbert completos.
+- Explicar brevemente la notación del signo más encerrado en corchetes [+]: representa la ortogonalidad no en el sentido clásico, sino bajo la métrica indefinida del espacio.
+- Mencionar que los proyectores P+ y P- son el andamiaje para construir el operador que estabilizará el espacio en la siguiente diapositiva.
+</aside>
+
+
+## La Simetría Fundamental $\mathcal{J}$
+
+La topología de un espacio de Krein se estabiliza a través de un operador clave que vincula la métrica indefinida con una métrica de Hilbert subyacente[cite: 59, 60].
+
+Se define el operador de **simetría fundamental** $\mathcal{J} : \mathcal{K} \rightarrow \mathcal{K}$ como:
+$$ \mathcal{J} = P^{+} - P^{-} $$
+
+**Propiedades Algebraicas Claves:**
+
+1.  **Involutiva:** $\mathcal{J}^2 = I$ (El operador identidad).
+2.  **Autoadjunta:** $[\mathcal{J}x, y] = [x, \mathcal{J}y]$.
+3.  **Isometría:** $[\mathcal{J}x, \mathcal{J}y] = [x, y]$.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 3]
+- Presentar a la simetría fundamental "J" como el núcleo geométrico de toda la teoría. Este operador actúa dejando intacto el subespacio positivo (P+) e invirtiendo el signo del subespacio negativo (P-).
+- Detallar las propiedades: 
+  - La propiedad involutiva asegura que aplicar J dos veces devuelve el vector original.
+  - Al ser isometría respecto a la métrica indefinida, preserva las estructuras de "longitud" y ángulo generalizado. 
+- Enfatizar que J será el puente para importar las herramientas de los marcos de Hilbert al espacio de Krein.
+</aside>
+
+
+## El $\mathcal{J}$-Producto Interno y Topología
+
+A partir de la simetría fundamental, se induce un producto interno definido positivo, dotando al espacio de una estructura de Hilbert fuerte[cite: 60].
+
+<div class="theorem-box">
+**El $\mathcal{J}$-producto interno:**
+Para todo $x, y \in \mathcal{K}$, se define[cite: 60]:
+$$ [x, y]_{\mathcal{J}} := [\mathcal{J}x, y] $$
+</div>
+
+*   **Norma inducida:** La norma asociada a este producto interno es $||x||_{\mathcal{J}} = \sqrt{[x,x]_{\mathcal{J}}}$[cite: 60].
+*   **Equivalencia Topológica:** Aunque un espacio de Krein admite múltiples descomposiciones (y por ende, múltiples simetrías $\mathcal{J}_1, \mathcal{J}_2$), las normas inducidas $||\cdot||_{\mathcal{J}_1}$ y $||\cdot||_{\mathcal{J}_2}$ son topológicamente equivalentes.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 4]
+- Explicar la fórmula del J-producto: Al multiplicar la parte negativa del espacio por la inversión de signo que provee J, el resultado total se vuelve estrictamente positivo, transformando la métrica indefinida en una métrica de Hilbert.
+- Señalar un resultado teórico crucial: Un espacio de Krein no tiene una única descomposición fundamental. Sin embargo, cualquier elección de J genera una topología equivalente. Por tanto, la noción de límite, continuidad y convergencia de series (fundamental para la teoría de marcos) es independiente de la J elegida.
+</aside>
+
+
+## Identidad de Polarización
+
+En el estudio de bimarcos, la reconstrucción de señales requiere mapear operadores a través de formas sesquilineales acotadas[cite: 55]. El puente algebraico fundamental es la Identidad de Polarización generalizada.
+
+<div class="theorem-box">
+**Teorema (Identidad de Polarización):**
+Si $(\mathcal{K}, [\cdot, \cdot])$ es un espacio con producto interno indefinido, para cualesquiera $x, y \in \mathcal{K}$ se cumple[cite: 54]:
+$$[x,y] = \frac{1}{4} \sum_{k=0}^{3} i^k [x+i^k y, x+i^k y]$$
+$$ = \frac{1}{4} [x+y, x+y] - \frac{1}{4} [x-y, x-y] + \frac{i}{4} [x+iy, x+iy] - \frac{i}{4} [x-iy, x-iy] $$
+</div>
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 5]
+- Hacer notar que la identidad de polarización clásica se sostiene exactamente igual sobre la métrica indefinida.
+- Aclarar el propósito de incluir este teorema: Para demostrar más adelante que la aplicación del operador bimarco está bien definida y es acotada, se requiere expresar el producto interno general en términos estrictos de normas cuadradas, lo cual se logra gracias a esta expansión en cuatro términos.
+</aside>
+
+
+## Ejemplo Geométrico: $\mathcal{K} = \mathbb{C}^2$
+
+Considérese el espacio modelo $\mathcal{K} = \mathbb{C}^2$ equipado con el producto interno indefinido[cite: 60]:
+$$[(a,b),(c,d)] := a\bar{c} - b\bar{d}$$
+
+Descomposición fundamental[cite: 60]:
+*   $\mathcal{K}^{+} = \{(x,0) \mid x \in \mathbb{C}\}$
+*   $\mathcal{K}^{-} = \{(0,y) \mid y \in \mathbb{C}\}$
+
+La simetría fundamental opera como $\mathcal{J}(x,y) = (x,-y)$, lo que induce el producto definido positivo $[(a,b),(c,d)]_{\mathcal{J}} = a\bar{c} + b\bar{d}$[cite: 60].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 6]
+- Mencionar que este es el ejemplo canónico más simple pero poderoso para ilustrar un espacio de Krein.
+- Destacar la métrica: El signo menos en "a(c conjugado) MENOS b(d conjugado)" es lo que hace que el espacio tenga signatura indefinida.
+- Explicar la simetría: J toma la coordenada del subespacio negativo (la "y") y la invierte. Al aplicar el J-producto, el "-b" se multiplica con el "-d" produciendo el "+bd", recuperando así el producto interno euclidiano estándar de C2.
+- Dar paso al gráfico de la siguiente diapositiva, donde este fenómeno se visualizará en R3 (restringiendo escalares).
+</aside>
+
+
+## Representación Visual del Cono Isotrópico
+
+Visualización tridimensional de la estructura métrica, aislando las componentes positivas y negativas separadas por el cono isotrópico (vectores de longitud cero).
+
+
+```{r}
+#| label: krein-cone-plot
+#| fig-cap: "Representación del Cono Isotrópico (Métrica Indefinida)"
+#| fig-align: center
+
+library(plotly)
+library(htmlwidgets)
+
+# Generación de la malla para el cono (restringido a R3 para visualización)
+grid_points <- seq(-5, 5, length.out = 40)
+grid_list <- expand.grid(x = grid_points, y = grid_points)
+
+# Z para la porción positiva y negativa del cono isotrópico (x^2 + y^2 - z^2 = 0)
+z_pos <- matrix(sqrt(grid_list$x^2 + grid_list$y^2), nrow = 40, ncol = 40)
+z_neg <- matrix(-sqrt(grid_list$x^2 + grid_list$y^2), nrow = 40, ncol = 40)
+
+# Renderizado interactivo de las subvariedades
+p <- plot_ly(x = ~grid_points, y = ~grid_points) %>%
+  add_surface(z = ~z_pos, colorscale = list(c(0, 1), c("#f8f9fa", "#1c3b57")), 
+              name = "K+ (Subespacio Positivo)", showscale = FALSE, opacity = 0.8) %>%
+  add_surface(z = ~z_neg, colorscale = list(c(0, 1), c("#8b0000", "#f8f9fa")), 
+              name = "K- (Subespacio Negativo)", showscale = FALSE, opacity = 0.8) %>%
+  layout(
+    scene = list(
+      xaxis = list(title = "Eje X", gridcolor = "white"),
+      yaxis = list(title = "Eje Y", gridcolor = "white"),
+      zaxis = list(title = "Eje Z", gridcolor = "white"),
+      # Cámara alejada: radio de 2.5 y altura de 0.8
+      camera = list(eye = list(x = 2.5, y = 0, z = 0.8))
+    ),
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor = "rgba(0,0,0,0)",
+    margin = list(l = 0, r = 0, b = 0, t = 0)
+  )
+
+# Inyección de JavaScript para rotación automática y fluida
+onRender(p, "
+  function(el, x) {
+    let angle = 0;
+    setInterval(function() {
+      angle += 0.005; 
+      Plotly.relayout(el, {
+        'scene.camera.eye': {
+          x: 2.5 * Math.cos(angle), // Radio de giro alejado
+          y: 2.5 * Math.sin(angle), // Radio de giro alejado
+          z: 0.8 // Altura de cámara alejada
+        }
+      });
+    }, 30); 
+  }
+")
+```
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 7]
+- (Interactuar con el gráfico rotándolo si es posible).
+- Indicar que, en este análogo tridimensional de Minkowski, la superficie del cono representa a todos los vectores cuya "norma" es cero, a pesar de no ser el vector origen. Esto es el cono isotrópico.
+- El manto superior azul representa la región de K+ (energía positiva) y el manto inferior rojo representa la región de K- (energía negativa).
+- Concluir la introducción afirmando que la teoría de marcos requiere sumar infinitos aportes (convergencia); sin la simetría J, las proyecciones oscilarían caóticamente entre el cono superior e inferior sin converger.
+</aside>
+
+
+## 2. Teoría de Marcos: Antecedentes Clásicos
+
+La teoría de marcos (frames) fue introducida por Duffin y Schaeffer en 1952 para el estudio de series de Fourier no armónicas, y posteriormente expandida por Daubechies en el análisis de wavelets[cite: 52]. 
+
+A diferencia de una base ortonormal, un marco permite redundancia (sobrecompletitud), garantizando una reconstrucción numéricamente estable de las señales, incluso en presencia de ruido o pérdida de coeficientes.
+
+```{r}
+#| label: mercedes-benz-frame
+#| fig-cap: "Representación conceptual de sobrecompletitud (Marco de Mercedes-Benz en R²)"
+#| fig-align: center
+#| fig-height: 4
+
+library(ggplot2)
+
+# Coordenadas del marco ajustado clásico en R^2
+df_frame <- data.frame(
+  x = c(0, 0, 0), y = c(0, 0, 0),
+  xend = c(0, -sqrt(3)/2, sqrt(3)/2),
+  yend = c(1, -0.5, -0.5),
+  Vector = c("x_1", "x_2", "x_3")
+)
+
+ggplot(df_frame) +
+  geom_segment(aes(x=x, y=y, xend=xend, yend=yend, color=Vector),
+               arrow = arrow(length = unit(0.3, "cm"), type="closed"), size=1.2) +
+  scale_color_manual(values = c("#1c3b57", "#8b0000", "#2e8b57")) +
+  theme_minimal(base_family = "serif") +
+  coord_equal(xlim = c(-1.2, 1.2), ylim = c(-1.2, 1.2)) +
+  labs(x = "", y = "", color = "Vectores") +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(),
+        panel.grid = element_line(color = "#e0e0e0"))
+```
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 8]
+- Iniciar la sección dos dando crédito a los orígenes clásicos (Duffin, Schaeffer, Daubechies) para situar la teoría de marcos en el análisis funcional.
+- Usar el gráfico para explicar la "sobrecompletitud": En R2 solo necesitamos 2 vectores para una base. Aquí tenemos 3 (Marco de Mercedes-Benz). Esta redundancia es lo que da robustez a la representación.
+- Enlazar con el siguiente slide: La pregunta central de la investigación es, ¿cómo se traslada esta robustez redundante a un espacio donde la métrica es indefinida?
+</aside>
+
+
+## Marcos en Espacios de Krein
+
+En esta sección se establece una definición formal de marcos en espacios de Krein, extendiendo las condiciones geométricas del espacio de Hilbert asociado[cite: 57].
+
+<div class="theorem-box">
+**Definición 3.1 (Marco en $\mathcal{K}$):**
+Sea $(\mathcal{K}=\mathcal{K}^{+}[+]\mathcal{K}^{-},[\cdot,\cdot])$ un espacio de Krein con simetría fundamental $\mathcal{J}$[cite: 59]. Una sucesión $\{x_{n}\}_{n\in\mathbb{N}}\subset\mathcal{K}$ se llama un marco de $\mathcal{K}$ si existen constantes $\alpha, \beta > 0$ tales que para todo $x\in\mathcal{K}$[cite: 59]:
+
+$$ \alpha||x||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}|[x,x_{n}]|^{2}\le\beta||x||_{\mathcal{J}}^{2} $$
+</div>
+
+*   Las constantes $\alpha$ y $\beta$ se denominan cotas inferior y superior del marco, respectivamente.
+*   Si $\alpha = \beta$, el marco se denomina *ajustado*.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 9]
+- Leer detalladamente la definición. Es fundamental hacer notar que, aunque los elementos se evalúan bajo el producto indefinido (en el centro de la desigualdad), las cotas se establecen estrictamente respecto a la norma inducida por J.
+- Explicar que usar la norma de J en los extremos garantiza que la "energía" medida sea definida positiva, evitando que las cotas colapsen por vectores del cono isotrópico.
+</aside>
+
+
+## Reescritura bajo la Métrica Indefinida
+
+A diferencia del módulo al cuadrado clásico en espacios de Hilbert, en un espacio con producto interno indefinido la magnitud compleja requiere un tratamiento algebraico específico.
+
+Nótese que por las propiedades de la forma sesquilineal hermítica, se cumple que[cite: 60]:
+$$ |[x,x_{n}]|^{2}=[x,x_{n}][x_{n},x] $$
+
+Por consiguiente, la condición de estabilidad que define al marco se reescribe de manera rigurosa como[cite: 60]:
+
+$$ \alpha||x||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[x,x_{n}][x_{n},x]\le\beta||x||_{\mathcal{J}}^{2}, \quad \forall x\in\mathcal{K} $$
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 10]
+- Hacer énfasis en este paso algebraico. En un espacio de Hilbert, el producto de [x, x_n] por su conjugado [x_n, x] es trivialmente el módulo al cuadrado.
+- En un espacio de Krein, dejar explícito el producto $[x,x_{n}][x_{n},x]$ es lo que motiva de forma natural la transición hacia la teoría de Bimarcos (que veremos en la siguiente sección), donde se separan estas dos posiciones del producto para usar dos sucesiones distintas (X e Y).
+</aside>
+
+
+## Correspondencia Topológica Fundamental
+
+El andamiaje topológico permite vincular directamente las estructuras de la métrica indefinida con el espacio de Hilbert estándar.
+
+*   Existe una correspondencia uno a uno entre los marcos en el espacio de Krein y los marcos en el espacio de Hilbert asociado[cite: 57].
+*   Toda sucesión $\{x_n\}_{n \in \mathbb{N}}$ que sea un marco en $(\mathcal{K}, [\cdot, \cdot])$ es también un marco en $(\mathcal{K}, [\cdot, \cdot]_{\mathcal{J}})$, y viceversa, compartiendo las mismas cotas $\alpha$ y $\beta$.
+
+Este isomorfismo garantiza que los operadores pre-marco y marco hereden las propiedades de acotación y convergencia incondicional requeridas para la reconstrucción exacta[cite: 57].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 11]
+- Explicar la importancia teórica de esta correspondencia: Demuestra que trabajar en el espacio de Krein con la simetría J no "rompe" la convergencia. 
+- Todo el herramental del análisis funcional que se ha desarrollado en el último siglo para espacios de Hilbert puede ser importado y aplicado a los espacios de Krein.
+- Concluir la sección mencionando que, aunque la teoría de marcos se sostiene, existen situaciones donde una sola sucesión $\{x_n\}$ no logra cumplir ambas cotas simultáneamente bajo métricas complejas, abriendo la puerta a los Bimarcos.
+</aside>
+
+
+## 3. Bimarcos en Espacios con Métrica Indefinida
+
+La restricción de emplear una única sucesión $\{x_n\}_{n\in\mathbb{N}}$ limita la flexibilidad geométrica requerida en ciertos problemas de reconstrucción. La generalización natural consiste en desacoplar el producto $[k,x_{n}][x_{n},k]$ utilizando dos sucesiones distintas[cite: 60].
+
+<div class="theorem-box">
+**Definición 3.2 (Bi-$\mathcal{J}$-marco):**
+Sean $(\mathcal{K}=\mathcal{K}^{+}[+]\mathcal{K}^{-},[\cdot,\cdot],\mathcal{J})$ un espacio de Krein y $(\mathcal{X},\mathcal{Y})=(\{x_{n}\}_{n\in\mathbb{N}},\{y_{n}\}_{n\in\mathbb{N}})\subset\mathcal{K}\times\mathcal{K}$[cite: 60]. Si existen constantes $\alpha, \beta > 0$ tales que para todo $k\in\mathcal{K}$[cite: 60]:
+
+$$ \alpha||k||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][y_{n},k]\le\beta||k||_{\mathcal{J}}^{2} $$
+
+entonces se dice que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco para $\mathcal{K}$[cite: 60].
+</div>
+
+*   Además, si se cumple utilizando el $\mathcal{J}$-producto interno directamente, se dice que es un bimarco para el espacio de Hilbert asociado $(\mathcal{K},[\cdot,\cdot]_{\mathcal{J}})$[cite: 60].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 12]
+- Esta diapositiva marca la entrada al aporte principal de la investigación.
+- Explicar la motivación algebraica: Al separar la sucesión original en dos distintas (X e Y), se obtienen grados de libertad adicionales. Un vector de la sucesión X analiza la señal, y el correspondiente de Y la sintetiza.
+- Destacar que la desigualdad mantiene la métrica indefinida en el centro (los productos cruzados), pero sigue siendo acotada por la métrica de Hilbert en los extremos para garantizar estabilidad.
+</aside>
+
+
+## Justificación Geométrica: El Caso $\mathbb{C}^2$
+
+¿Existen sucesiones que formen un bimarco sin ser marcos individualmente? Se demuestra afirmativamente mediante un contraejemplo en $\mathcal{K} = \mathbb{C}^2$ con el producto interno $[(a,b),(c,d)] = a\bar{c} - b\bar{d}$[cite: 60].
+
+Se definen las sucesiones $\mathcal{X}$ y $\mathcal{Y}$ para $k\in\mathbb{N}$ como[cite: 61]:
+$$x_{4k-3}=e_{1}, \quad x_{4k-2}=\frac{1}{k^{2}}e_{1}, \quad x_{4k-1}=e_{2}, \quad x_{4k}=\frac{1}{k^{2}}e_{2}$$
+$$y_{4k-3}=\frac{1}{k^{2}}e_{1}, \quad y_{4k-2}=e_{1}, \quad y_{4k-1}=\frac{1}{k^{2}}e_{2}, \quad y_{4k}=e_{2}$$
+
+Para $z_0 = e_1$, la sucesión $\mathcal{X}$ diverge[cite: 61]:
+$$ \sum_{n\in\mathbb{N}}|[z_{0},x_{n}]|^{2} = \sum_{k\in\mathbb{N}}\left(1+\frac{1}{k^{4}}\right) = +\infty $$
+Por lo tanto, $\mathcal{X}$ (y de forma análoga $\mathcal{Y}$) **no** admiten una cota superior $\beta$, por ende, no son $\mathcal{J}$-marcos[cite: 61, 62].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 13]
+- Este es un hito de la presentación. Se presenta el problema: Si analizamos la sucesión X sola, la sumatoria contiene un término "1" infinito número de veces, por lo que la serie diverge hacia el infinito.
+- Al no tener cota superior, falla estrepitosamente como marco (la energía explota).
+- Pedir a la audiencia que memoricen la asimetría intencional entre X e Y: donde X tiene coeficientes 1, Y tiene 1/k^2, y viceversa. Esto se resolverá en la siguiente diapositiva.
+</aside>
+
+
+## Estabilización Conjunta en $\mathbb{C}^2$
+
+Al operar el par $(\mathcal{X}, \mathcal{Y})$ bajo el producto cruzado del bimarco, los coeficientes se compensan mutuamente. Para cualquier $z \in \mathbb{C}^2$, se obtiene[cite: 62]:
+
+$$ \sum_{n\in\mathbb{N}}[z,x_{n}][y_{n},z] = (|z_1|^2 + |z_2|^2) \sum_{k\in\mathbb{N}}\frac{2}{k^{2}} = \frac{\pi^2}{3}(|z_1|^2 + |z_2|^2) $$
+
+Dado que $||z||_{\mathcal{J}}^{2} = |z_1|^2 + |z_2|^2$, se concluye geométricamente que[cite: 62]:
+$$ 3||z||_{\mathcal{J}}^{2} \le \sum_{n\in\mathbb{N}}[x_{n},z][z,y_{n}] \le 4||z||_{\mathcal{J}}^{2} $$
+
+El par $(\mathcal{X}, \mathcal{Y})$ constituye un $\mathcal{J}$-bimarco con cotas $\alpha=3$ y $\beta=4$, a pesar de la divergencia individual[cite: 62].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 14]
+- Mostrar la elegancia del resultado: Al multiplicar los términos, los "1" infinitos de X se cancelan con los "1/k^2" de Y, resultando en la famosa serie de Basilea que converge a (pi^2)/6.
+- Como resultado, la energía del sistema conjunto está estrictamente atrapada entre 3 y 4.
+- Conclusión para la audiencia: Los bimarcos permiten reconstruir señales con sistemas de sensores (sucesiones) que de forma individual serían inestables o defectuosos.
+</aside>
+
+
+## Suma de Marcos mediante Bimarcos
+
+En espacios de Hilbert, la suma de dos marcos no necesariamente constituye un nuevo marco. La teoría de bimarcos proporciona las condiciones suficientes para garantizar la estabilidad de estas sumas en espacios de Krein[cite: 62].
+
+<div class="theorem-box">
+**Proposición 3.4:**
+Si $\mathcal{X}=\{x_{n}\}_{n\in\mathbb{N}}$ y $\mathcal{Z}=\{z_{n}\}_{n\in\mathbb{N}}$ son $\mathcal{J}$-marcos para $\mathcal{K}$, y el par $(\mathcal{X},\mathcal{Z})$ conforma un $\mathcal{J}$-bimarco, entonces la sucesión suma $\mathcal{X}+\mathcal{Z}$ es también un $\mathcal{J}$-marco para el espacio $\mathcal{K}$[cite: 62].
+</div>
+
+*   *Esquema de demostración:* Se fundamenta en la expansión del cuadrado de la norma, donde los términos cruzados $[x_n, z][z, z_n]$ quedan acotados precisamente por las constantes del $\mathcal{J}$-bimarco $e$ y $f$[cite: 63].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 15]
+- Explicar la utilidad de este teorema: Sirve para diseñar nuevos sistemas de reconstrucción combinando sistemas previos.
+- Si simplemente sumamos dos marcos, la interacción entre ellos podría anular componentes vitales y perder la cota inferior.
+- Sin embargo, si ambos marcos forman un bimarco entre sí, su interacción está acotada. Esto garantiza que la estructura resultante (X+Z) sea matemáticamente robusta.
+</aside>
+
+
+## Equivalencia Estructural bajo $\mathcal{J}$
+
+La simetría fundamental transfiere intacta la topología de los bimarcos al espacio de Hilbert asociado, facilitando su manipulación.
+
+<div class="theorem-box">
+**Proposición 3.7:**
+Sean $\mathcal{X}$ y $\mathcal{Y}$ sucesiones en un espacio de Krein $\mathcal{K}$. Las siguientes condiciones son equivalentes[cite: 65]:
+1. $(\mathcal{X},\mathcal{Y})$ es un $\mathcal{J}$-bimarco para el espacio de Krein $(\mathcal{K}, [\cdot,\cdot])$[cite: 65].
+2. $(\mathcal{J}\mathcal{X}, \mathcal{J}\mathcal{Y})$ es un bimarco para el espacio de Hilbert $(\mathcal{K}, [\cdot,\cdot]_{\mathcal{J}})$[cite: 65].
+</div>
+
+*   La demostración exige el uso riguroso de la involución $\mathcal{J}(\mathcal{J}(x)) = x$ y la conservación isométrica $||x||_{\mathcal{J}} = ||\mathcal{J}(x)||_{\mathcal{J}}$[cite: 65, 66].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 16]
+- Mencionar que este teorema es la "llave maestra" de la teoría. 
+- Transforma un problema en métrica indefinida (muy difícil de tratar algebraicamente) en un problema de bimarcos en espacios de Hilbert (cuya teoría es mucho más madura).
+- Basta con aplicar el operador J a cada elemento de las sucesiones X e Y para realizar el salto topológico.
+</aside>
+
+
+## El Operador $\mathcal{J}$-Bimarco
+
+Para abordar el problema de reconstrucción algorítmica de señales, se introduce el operador núcleo de la teoría. Se define primeramente la forma sesquilineal $\psi$ asociada al bimarco[cite: 67]:
+
+$$ \psi(x,y)=\sum_{n\in\mathbb{N}}[x,x_{n}]_{\mathcal{J}}[y_{n},y]_{\mathcal{J}} $$
+
+Mediante el Teorema de Representación de Riesz, se garantiza la existencia de un único operador acotado $T$ tal que $[T(x),y]_{\mathcal{J}}=\psi(x,y)$[cite: 72, 73]. A partir de este, se establece el operador fundamental:
+
+<div class="theorem-box">
+**Definición (Operador $\mathcal{J}$-bimarco):**
+Se define el operador $\mathcal{M}:\mathcal{K}\rightarrow\mathcal{K}$ como $\mathcal{M}=\mathcal{J}T\mathcal{J}$, cuya forma explícita está dada por[cite: 73]:
+$$ \mathcal{M}(x) = \sum_{n\in\mathbb{N}}[x,x_{n}]\mathcal{J}(y_{n}) $$
+</div>
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 17]
+- Explicar el camino deductivo: Primero se demuestra que la sumatoria es una forma sesquilineal acotada (para lo que se usó la identidad de polarización vista al inicio).
+- Al ser acotada, Riesz nos regala la existencia del operador T.
+- Finalmente, se define el operador M conjugando T con la simetría J. La ecuación final de M(x) es el algoritmo exacto mediante el cual una señal x es descompuesta en coeficientes [x,x_n] y reconstruida usando J(y_n).
+</aside>
+
+
+## Visualización del Condicionamiento del Operador
+
+El condicionamiento del operador (relación entre sus cotas $\lambda$ y $\beta$) determina la estabilidad numérica de la reconstrucción de la señal en el espacio de Krein.
+
+```{r}
+#| label: operator-bounds
+#| fig-cap: "Condicionamiento Espectral del Operador J-bimarco"
+#| fig-align: center
+#| fig-height: 4
+
+library(ggplot2)
+
+# Datos simulados para ilustrar el espectro de un operador bimarco acotado
+set.seed(123)
+n_eigen <- 1:100
+# Valores propios simulados acotados entre lambda=0.8 y beta=3.5
+eigenvalues <- 0.8 + (3.5 - 0.8) * (1 - exp(-0.05 * n_eigen)) + rnorm(100, 0, 0.05)
+
+df_op <- data.frame(Index = n_eigen, Value = eigenvalues)
+
+ggplot(df_op, aes(x = Index, y = Value)) +
+  geom_point(color = "#1c3b57", alpha = 0.6) +
+  geom_hline(yintercept = 0.8, color = "#8b0000", linetype = "dashed", size = 1) +
+  geom_hline(yintercept = 3.5, color = "#8b0000", linetype = "dashed", size = 1) +
+  annotate("text", x = 15, y = 0.5, label = "Cota Inferior (λ > 0)", family = "serif", color = "#8b0000") +
+  annotate("text", x = 15, y = 3.8, label = "Cota Superior (β < ∞)", family = "serif", color = "#8b0000") +
+  theme_minimal(base_family = "serif") +
+  labs(x = "Índice Espectral (n)", y = "Espectro del Operador [MJ(x), x]") +
+  theme(panel.grid.minor = element_blank())
+```
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 18]
+- Explicar la gráfica: Esta simulación muestra cómo se comportan las proyecciones del operador para distintos vectores.
+- Lo crucial es observar que ningún punto cae por debajo de la línea punteada inferior (lambda) ni supera la superior (beta). 
+- Si cayera a cero o debajo (debido a la métrica indefinida), perderíamos la información de la señal (el operador no sería invertible). Mantenerse estrictamente positivo es lo que asegura que M se pueda invertir.
+</aside>
+
+
+## Invertibilidad y Reconstrucción
+
+El objetivo final de todo marco es reconstruir un elemento arbitrario del espacio. Para ello, el operador marco asociado debe ser invertible. 
+
+<div class="theorem-box">
+**Teorema de Invertibilidad:**
+Si $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco con cotas $\lambda, \beta > 0$, entonces su operador asociado satisface[cite: 74, 75]:
+$$ \lambda I \le \mathcal{M}\mathcal{J} \le \beta I $$
+y por consiguiente, $\mathcal{M}$ es un operador continuo e invertible sobre $\mathcal{K}$[cite: 76].
+</div>
+
+*   *Demostración (Esquema):* La relación de acotamiento implica que $[(I - \beta^{-1}\mathcal{M}\mathcal{J})(k), k]_{\mathcal{J}} \ge 0$[cite: 76]. 
+*   Mediante el cálculo del supremo en la esfera unitaria, la norma satisface $||I - \beta^{-1}\mathcal{M}\mathcal{J}||_{\mathcal{J}} \le 1 - \frac{\lambda}{\beta} < 1$[cite: 77]. 
+*   Por el Teorema de Neumann, la serie converge, garantizando la existencia del operador inverso[cite: 77].
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 19]
+- Este es el clímax matemático de la sección. 
+- Explicar que la desigualdad asegura que el operador compuesto MJ se comporta como un operador positivo fuertemente acotado.
+- Mencionar que el uso de la Serie de Neumann (I - T)^(-1) es el argumento definitivo: Al probar que la norma del operador modificado es estrictamente menor a 1, la convergencia es absoluta y el operador se puede invertir.
+- Con esto cerramos la parte dura teórica: Hemos demostrado que los bimarcos en espacios de métrica indefinida permiten algoritmos de reconstrucción de señales perfectamente válidos y estables.
+</aside>
+

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Osmín Ferrer Villar">
+  <meta name="author" content="Ader Villar Ortega">
+  <meta name="dcterms.date" content="2026-11-12">
+  <title>Bimarcos en Espacios con Métrica Indefinida</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-37cce204f9173b8be995616b64db916c.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="index_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="index_files/libs/plotly-binding-4.12.1/plotly.js"></script>
+  <script src="index_files/libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="index_files/libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="index_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+  <script src="index_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+  <link href="index_files/libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="index_files/libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Bimarcos en Espacios con Métrica Indefinida</h1>
+  <p class="subtitle">Encuentro Internacional de Matemáticas (EIMAT)<br>Universidad del Atlántico <br><img data-src="logo-mods.png" width="150"></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Osmín Ferrer Villar 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:osmin.ferrer@unisucre.org">osmin.ferrer@unisucre.org</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Universidad de Sucre
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ader Villar Ortega 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:ader.villar@modsinstitute.org">ader.villar@modsinstitute.org</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Corporación MODS
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-11-12</p>
+</section>
+<section id="de-los-espacios-de-hilbert-a-la-métrica-indefinida" class="slide level2 center">
+<h2>1. De los Espacios de Hilbert a la Métrica Indefinida</h2>
+<p>El análisis funcional clásico se cimenta en la geometría de los espacios de Hilbert, donde el producto interno induce una métrica definida positiva. Sin embargo, diversos problemas físicos y matemáticos exigen relajar esta condición geométrica.</p>
+<ul>
+<li><strong>Espacio con producto interno indefinido:</strong> Un espacio vectorial complejo <span class="math inline">\(\mathcal{K}\)</span> equipado con una forma sesquilineal hermítica <span class="math inline">\([\cdot, \cdot]\)</span> que no necesariamente satisface <span class="math inline">\([x,x] &gt; 0\)</span> para <span class="math inline">\(x \neq 0\)</span>[cite: 53].</li>
+<li>Los vectores se clasifican geométricamente en función de su norma cuadrada isotrópica:
+<ul>
+<li><strong>Positivos:</strong> <span class="math inline">\([x,x] &gt; 0\)</span></li>
+<li><strong>Negativos:</strong> <span class="math inline">\([x,x] &lt; 0\)</span></li>
+<li><strong>Neutros (Isotrópicos):</strong> <span class="math inline">\([x,x] = 0\)</span> con <span class="math inline">\(x \neq 0\)</span></li>
+</ul></li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 1] - Iniciar agradeciendo la asistencia y presentando el objetivo de la charla. - Explicar la motivación conceptual: En un espacio de Hilbert, la distancia geométrica siempre es estricta y positiva. En espacios con métrica indefinida (como el espacio-tiempo de Minkowski), existen vectores no nulos cuya “longitud” o energía es cero o negativa. - Hacer énfasis en la clasificación de los vectores (positivos, negativos, neutros), ya que el cono isotrópico (vectores neutros) es lo que divide geométricamente el espacio y rompe la topología tradicional de Hilbert.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="estructura-del-espacio-de-krein" class="slide level2 center">
+<h2>Estructura del Espacio de Krein</h2>
+<p>Para establecer un marco topológico completo sobre una métrica indefinida, se requiere una descomposición ortogonal estructurada.</p>
+<div class="theorem-box">
+<p><strong>Definición (Espacio de Krein):</strong> Un espacio vectorial <span class="math inline">\(\mathcal{K}\)</span> con producto interno indefinido <span class="math inline">\([\cdot, \cdot]\)</span> es un espacio de Krein si admite una descomposición en suma directa ortogonal[cite: 59]: <span class="math display">\[ \mathcal{K} = \mathcal{K}^{+} [+] \mathcal{K}^{-} \]</span> donde <span class="math inline">\((\mathcal{K}^{+}, [\cdot, \cdot])\)</span> y <span class="math inline">\((\mathcal{K}^{-}, -[\cdot, \cdot])\)</span> son espacios de Hilbert de manera independiente.</p>
+</div>
+<ul>
+<li>El símbolo <span class="math inline">\([+]\)</span> denota que la suma directa es ortogonal respecto al producto interno indefinido <span class="math inline">\([\cdot, \cdot]\)</span>[cite: 59].</li>
+<li>A esta descomposición se le asocian los proyectores ortogonales <span class="math inline">\(P^{+}\)</span> y <span class="math inline">\(P^{-}\)</span> sobre <span class="math inline">\(\mathcal{K}^{+}\)</span> y <span class="math inline">\(\mathcal{K}^{-}\)</span> respectivamente.</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 2] - Aclarar que no cualquier espacio con métrica indefinida es un espacio de Krein; la condición sine qua non es que se pueda particionar en dos subespacios que, de forma aislada, se comporten como espacios de Hilbert completos. - Explicar brevemente la notación del signo más encerrado en corchetes [+]: representa la ortogonalidad no en el sentido clásico, sino bajo la métrica indefinida del espacio. - Mencionar que los proyectores P+ y P- son el andamiaje para construir el operador que estabilizará el espacio en la siguiente diapositiva.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="la-simetría-fundamental-mathcalj" class="slide level2 center">
+<h2>La Simetría Fundamental <span class="math inline">\(\mathcal{J}\)</span></h2>
+<p>La topología de un espacio de Krein se estabiliza a través de un operador clave que vincula la métrica indefinida con una métrica de Hilbert subyacente[cite: 59, 60].</p>
+<p>Se define el operador de <strong>simetría fundamental</strong> <span class="math inline">\(\mathcal{J} : \mathcal{K} \rightarrow \mathcal{K}\)</span> como: <span class="math display">\[ \mathcal{J} = P^{+} - P^{-} \]</span></p>
+<p><strong>Propiedades Algebraicas Claves:</strong></p>
+<ol type="1">
+<li><strong>Involutiva:</strong> <span class="math inline">\(\mathcal{J}^2 = I\)</span> (El operador identidad).</li>
+<li><strong>Autoadjunta:</strong> <span class="math inline">\([\mathcal{J}x, y] = [x, \mathcal{J}y]\)</span>.</li>
+<li><strong>Isometría:</strong> <span class="math inline">\([\mathcal{J}x, \mathcal{J}y] = [x, y]\)</span>.</li>
+</ol>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 3] - Presentar a la simetría fundamental “J” como el núcleo geométrico de toda la teoría. Este operador actúa dejando intacto el subespacio positivo (P+) e invirtiendo el signo del subespacio negativo (P-). - Detallar las propiedades: - La propiedad involutiva asegura que aplicar J dos veces devuelve el vector original. - Al ser isometría respecto a la métrica indefinida, preserva las estructuras de “longitud” y ángulo generalizado. - Enfatizar que J será el puente para importar las herramientas de los marcos de Hilbert al espacio de Krein.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="el-mathcalj-producto-interno-y-topología" class="slide level2 center">
+<h2>El <span class="math inline">\(\mathcal{J}\)</span>-Producto Interno y Topología</h2>
+<p>A partir de la simetría fundamental, se induce un producto interno definido positivo, dotando al espacio de una estructura de Hilbert fuerte[cite: 60].</p>
+<div class="theorem-box">
+<p><strong>El <span class="math inline">\(\mathcal{J}\)</span>-producto interno:</strong> Para todo <span class="math inline">\(x, y \in \mathcal{K}\)</span>, se define[cite: 60]: <span class="math display">\[ [x, y]_{\mathcal{J}} := [\mathcal{J}x, y] \]</span></p>
+</div>
+<ul>
+<li><strong>Norma inducida:</strong> La norma asociada a este producto interno es <span class="math inline">\(||x||_{\mathcal{J}} = \sqrt{[x,x]_{\mathcal{J}}}\)</span>[cite: 60].</li>
+<li><strong>Equivalencia Topológica:</strong> Aunque un espacio de Krein admite múltiples descomposiciones (y por ende, múltiples simetrías <span class="math inline">\(\mathcal{J}_1, \mathcal{J}_2\)</span>), las normas inducidas <span class="math inline">\(||\cdot||_{\mathcal{J}_1}\)</span> y <span class="math inline">\(||\cdot||_{\mathcal{J}_2}\)</span> son topológicamente equivalentes.</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 4] - Explicar la fórmula del J-producto: Al multiplicar la parte negativa del espacio por la inversión de signo que provee J, el resultado total se vuelve estrictamente positivo, transformando la métrica indefinida en una métrica de Hilbert. - Señalar un resultado teórico crucial: Un espacio de Krein no tiene una única descomposición fundamental. Sin embargo, cualquier elección de J genera una topología equivalente. Por tanto, la noción de límite, continuidad y convergencia de series (fundamental para la teoría de marcos) es independiente de la J elegida.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="identidad-de-polarización" class="slide level2 center">
+<h2>Identidad de Polarización</h2>
+<p>En el estudio de bimarcos, la reconstrucción de señales requiere mapear operadores a través de formas sesquilineales acotadas[cite: 55]. El puente algebraico fundamental es la Identidad de Polarización generalizada.</p>
+<div class="theorem-box">
+<p><strong>Teorema (Identidad de Polarización):</strong> Si <span class="math inline">\((\mathcal{K}, [\cdot, \cdot])\)</span> es un espacio con producto interno indefinido, para cualesquiera <span class="math inline">\(x, y \in \mathcal{K}\)</span> se cumple[cite: 54]: <span class="math display">\[[x,y] = \frac{1}{4} \sum_{k=0}^{3} i^k [x+i^k y, x+i^k y]\]</span> <span class="math display">\[ = \frac{1}{4} [x+y, x+y] - \frac{1}{4} [x-y, x-y] + \frac{i}{4} [x+iy, x+iy] - \frac{i}{4} [x-iy, x-iy] \]</span></p>
+</div>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 5] - Hacer notar que la identidad de polarización clásica se sostiene exactamente igual sobre la métrica indefinida. - Aclarar el propósito de incluir este teorema: Para demostrar más adelante que la aplicación del operador bimarco está bien definida y es acotada, se requiere expresar el producto interno general en términos estrictos de normas cuadradas, lo cual se logra gracias a esta expansión en cuatro términos.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ejemplo-geométrico-mathcalk-mathbbc2" class="slide level2 center">
+<h2>Ejemplo Geométrico: <span class="math inline">\(\mathcal{K} = \mathbb{C}^2\)</span></h2>
+<p>Considérese el espacio modelo <span class="math inline">\(\mathcal{K} = \mathbb{C}^2\)</span> equipado con el producto interno indefinido[cite: 60]: <span class="math display">\[[(a,b),(c,d)] := a\bar{c} - b\bar{d}\]</span></p>
+<p>Descomposición fundamental[cite: 60]: * <span class="math inline">\(\mathcal{K}^{+} = \{(x,0) \mid x \in \mathbb{C}\}\)</span> * <span class="math inline">\(\mathcal{K}^{-} = \{(0,y) \mid y \in \mathbb{C}\}\)</span></p>
+<p>La simetría fundamental opera como <span class="math inline">\(\mathcal{J}(x,y) = (x,-y)\)</span>, lo que induce el producto definido positivo <span class="math inline">\([(a,b),(c,d)]_{\mathcal{J}} = a\bar{c} + b\bar{d}\)</span>[cite: 60].</p>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 6] - Mencionar que este es el ejemplo canónico más simple pero poderoso para ilustrar un espacio de Krein. - Destacar la métrica: El signo menos en “a(c conjugado) MENOS b(d conjugado)” es lo que hace que el espacio tenga signatura indefinida. - Explicar la simetría: J toma la coordenada del subespacio negativo (la “y”) y la invierte. Al aplicar el J-producto, el “-b” se multiplica con el “-d” produciendo el “+bd”, recuperando así el producto interno euclidiano estándar de C2. - Dar paso al gráfico de la siguiente diapositiva, donde este fenómeno se visualizará en R3 (restringiendo escalares).
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="representación-visual-del-cono-isotrópico" class="slide level2 center">
+<h2>Representación Visual del Cono Isotrópico</h2>
+<p>Visualización tridimensional de la estructura métrica, aislando las componentes positivas y negativas separadas por el cono isotrópico (vectores de longitud cero).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e3e1685ff76e6369a31f" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e3e1685ff76e6369a31f">{"x":{"visdat":{"61cc871024b":["function () ","plotlyVisDat"]},"cur_data":"61cc871024b","attrs":{"61cc871024b":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"z":{},"type":"surface","colorscale":[[0,1],["#f8f9fa","#1c3b57"]],"name":"K+ (Subespacio Positivo)","showscale":false,"opacity":0.80000000000000004,"inherit":true},"61cc871024b.1":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"z":{},"type":"surface","colorscale":[[0,1],["#8b0000","#f8f9fa"]],"name":"K- (Subespacio Negativo)","showscale":false,"opacity":0.80000000000000004,"inherit":true}},"layout":{"margin":{"b":0,"l":0,"t":0,"r":0},"scene":{"xaxis":{"title":"Eje X","gridcolor":"white"},"yaxis":{"title":"Eje Y","gridcolor":"white"},"zaxis":{"title":"Eje Z","gridcolor":"white"},"camera":{"eye":{"x":2.5,"y":0,"z":0.80000000000000004}}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"z_pos<br />z_neg","ticklen":2},"colorscale":[[0,"#f8f9fa"],[1,"#1c3b57"]],"showscale":false,"x":[-5,-4.7435897435897436,-4.4871794871794872,-4.2307692307692308,-3.9743589743589745,-3.7179487179487181,-3.4615384615384617,-3.2051282051282053,-2.9487179487179489,-2.6923076923076925,-2.4358974358974361,-2.1794871794871797,-1.9230769230769234,-1.666666666666667,-1.4102564102564106,-1.1538461538461542,-0.8974358974358978,-0.64102564102564141,-0.38461538461538503,-0.12820512820512864,0.12820512820512775,0.38461538461538414,0.64102564102564052,0.89743589743589691,1.1538461538461533,1.4102564102564097,1.6666666666666661,1.9230769230769225,2.1794871794871788,2.4358974358974352,2.6923076923076916,2.948717948717948,3.2051282051282044,3.4615384615384599,3.7179487179487172,3.9743589743589745,4.2307692307692299,4.4871794871794854,4.7435897435897427,5],"y":[-5,-4.7435897435897436,-4.4871794871794872,-4.2307692307692308,-3.9743589743589745,-3.7179487179487181,-3.4615384615384617,-3.2051282051282053,-2.9487179487179489,-2.6923076923076925,-2.4358974358974361,-2.1794871794871797,-1.9230769230769234,-1.666666666666667,-1.4102564102564106,-1.1538461538461542,-0.8974358974358978,-0.64102564102564141,-0.38461538461538503,-0.12820512820512864,0.12820512820512775,0.38461538461538414,0.64102564102564052,0.89743589743589691,1.1538461538461533,1.4102564102564097,1.6666666666666661,1.9230769230769225,2.1794871794871788,2.4358974358974352,2.6923076923076916,2.948717948717948,3.2051282051282044,3.4615384615384599,3.7179487179487172,3.9743589743589745,4.2307692307692299,4.4871794871794854,4.7435897435897427,5],"z":[[7.0710678118654755,6.8921436183156981,6.7182423110635394,6.549763986894769,6.3871377985031543,6.2308219898578807,6.0813031926314984,5.9390947804617795,5.8047340629086008,5.6787781000897697,5.5617979393548369,5.4543711246622175,5.3570724143015847,5.2704627669472988,5.195076817783284,5.1314092554332049,5.0799007067074227,5.0409239105993588,5.0147710809251143,5.0016433854182463,5.0016433854182463,5.0147710809251143,5.0409239105993588,5.0799007067074227,5.1314092554332049,5.195076817783284,5.2704627669472988,5.3570724143015838,5.4543711246622175,5.561797939354836,5.6787781000897688,5.8047340629085999,5.9390947804617786,6.0813031926314975,6.2308219898578798,6.3871377985031543,6.549763986894769,6.7182423110635376,6.8921436183156981,7.0710678118654755],[6.8921436183156981,6.7084489497185276,6.5296572196137657,6.3561821826874567,6.1884709672549594,6.0270047556631576,5.8722987131275826,5.7249009132733608,5.5853899771261446,5.4543711246622175,5.3324703443808774,5.2203264285903419,5.1185807122249045,5.0278645002891222,4.9487843757996881,4.8819058370922486,4.8277359958365977,4.7867063339985814,4.7591567162232264,4.7453219290568578,4.7453219290568578,4.7591567162232264,4.7867063339985814,4.8277359958365977,4.8819058370922486,4.9487843757996872,5.0278645002891222,5.1185807122249045,5.220326428590341,5.3324703443808765,5.4543711246622166,5.5853899771261446,5.7249009132733608,5.8722987131275826,6.0270047556631576,6.1884709672549594,6.3561821826874558,6.5296572196137648,6.7084489497185267,6.8921436183156981],[6.7182423110635394,6.5296572196137657,6.3458300875715805,6.167186395284971,5.9941896038774152,5.8273426550582119,5.6671887449488061,5.5143110686170687,5.3693311772748524,5.2329055466560392,5.1057199363435579,4.9884811431650569,4.8819058370922495,4.7867063339985823,4.7035734173959334,4.6331566665622184,4.576043153224294,4.5327357768368435,4.5036328385257169,4.4890106153875884,4.4890106153875884,4.5036328385257169,4.5327357768368435,4.576043153224294,4.6331566665622184,4.7035734173959334,4.7867063339985814,4.8819058370922486,4.988481143165056,5.1057199363435579,5.2329055466560384,5.3693311772748515,5.5143110686170678,5.6671887449488052,5.827342655058211,5.9941896038774152,6.1671863952849701,6.3458300875715787,6.5296572196137657,6.7182423110635394],[6.549763986894769,6.3561821826874567,6.167186395284971,5.9832112254246326,5.8047340629086008,5.6322775990996909,5.4664116936738063,5.3077542421755002,5.1569706054150686,5.0147710809251143,4.8819058370922486,4.7591567162232273,4.6473253744594505,4.5472173976841539,4.4596223412630991,4.3852900965351456,4.3249045624187179,4.279056222635548,4.2482157758412535,4.232711286979276,4.232711286979276,4.2482157758412535,4.279056222635548,4.3249045624187179,4.3852900965351456,4.4596223412630982,4.547217397684153,4.6473253744594505,4.7591567162232264,4.8819058370922486,5.0147710809251143,5.1569706054150677,5.3077542421754993,5.4664116936738045,5.6322775990996909,5.8047340629086008,5.9832112254246326,6.1671863952849701,6.3561821826874558,6.549763986894769],[6.3871377985031543,6.1884709672549594,5.9941896038774152,5.8047340629086008,5.6205923632776855,5.4423039171259298,5.2704627669472988,5.1057199363435588,4.9487843757996881,4.8004218530382197,4.66145101607637,4.5327357768368435,4.4151731686468114,4.3096759779414393,4.2171497957432127,4.1384647157869168,4.0744227133514626,4.025722684130149,3.9929260262557533,3.9764262613514934,3.9764262613514929,3.9929260262557533,4.025722684130149,4.0744227133514626,4.1384647157869168,4.2171497957432118,4.3096759779414384,4.4151731686468114,4.5327357768368435,4.66145101607637,4.8004218530382188,4.9487843757996881,5.1057199363435579,5.2704627669472979,5.4423039171259289,5.6205923632776855,5.8047340629085999,5.9941896038774143,6.1884709672549585,6.3871377985031543],[6.2308219898578807,6.0270047556631576,5.8273426550582119,5.6322775990996909,5.4423039171259298,5.2579735011307385,5.0799007067074227,4.9087665946350381,4.7453219290568587,4.5903881512738867,4.4448553393230048,4.3096759779414393,4.185853260849874,4.0744227133514626,3.9764262613514929,3.8928785770997378,3.8247266385067431,3.7728048639902978,3.737789676182885,3.7201584944992074,3.7201584944992074,3.737789676182885,3.7728048639902978,3.8247266385067431,3.8928785770997374,3.9764262613514929,4.0744227133514626,4.185853260849874,4.3096759779414384,4.4448553393230039,4.5903881512738858,4.7453219290568578,4.9087665946350372,5.0799007067074218,5.2579735011307376,5.4423039171259298,5.6322775990996909,5.8273426550582093,6.0270047556631576,6.2308219898578807],[6.0813031926314984,5.8722987131275826,5.6671887449488061,5.4664116936738063,5.2704627669472988,5.0799007067074227,4.8953546389837905,4.7175306392241287,4.5472173976841539,4.3852900965351465,4.2327112869792769,4.0905272137291844,3.9598577465334621,3.8418779650696662,3.737789676182885,3.6487819155788994,3.575980943841373,3.5203923635246106,3.4828404377451605,3.4639118169503327,3.4639118169503322,3.4828404377451601,3.5203923635246106,3.5759809438413726,3.648781915578899,3.737789676182885,3.8418779650696657,3.9598577465334617,4.0905272137291835,4.232711286979276,4.3852900965351456,4.547217397684153,4.7175306392241279,4.8953546389837896,5.0799007067074227,5.2704627669472988,5.4664116936738054,5.6671887449488043,5.8722987131275826,6.0813031926314984],[5.9390947804617795,5.7249009132733608,5.5143110686170687,5.3077542421755002,5.1057199363435588,4.9087665946350381,4.7175306392241287,4.5327357768368435,4.3552019875546231,4.185853260849874,4.025722684130149,3.8759529379053785,3.7377896761828855,3.612564821437275,3.5016667394224781,3.4064949373298523,3.3283987142941465,3.2686022523030678,3.2281226441061981,3.2076912828709756,3.2076912828709756,3.2281226441061981,3.2686022523030673,3.3283987142941465,3.4064949373298519,3.5016667394224776,3.6125648214372745,3.737789676182885,3.8759529379053781,4.025722684130149,4.185853260849874,4.3552019875546222,4.5327357768368426,4.717530639224127,4.9087665946350381,5.1057199363435588,5.3077542421754993,5.5143110686170669,5.7249009132733608,5.9390947804617795],[5.8047340629086008,5.5853899771261446,5.3693311772748524,5.1569706054150686,4.9487843757996881,4.7453219290568587,4.5472173976841539,4.3552019875546231,4.1701169146898955,3.9929260262557533,3.8247266385067431,3.6667563195064341,3.5203923635246106,3.3871396958007454,3.2686022523030673,3.1664330859560179,3.0822603282490535,3.0175903322922619,2.9736957704469753,2.9515037008259846,2.9515037008259841,2.9736957704469749,3.0175903322922615,3.0822603282490535,3.1664330859560175,3.2686022523030669,3.3871396958007449,3.5203923635246102,3.6667563195064337,3.8247266385067427,3.9929260262557529,4.1701169146898946,4.3552019875546222,4.5472173976841521,4.7453219290568578,4.9487843757996881,5.1569706054150677,5.3693311772748507,5.5853899771261437,5.8047340629086008],[5.6787781000897697,5.4543711246622175,5.2329055466560392,5.0147710809251143,4.8004218530382197,4.5903881512738867,4.3852900965351465,4.185853260849874,3.9929260262557533,3.8074980525429485,3.6307185278221277,3.4639118169503327,3.3085866411702414,3.1664330859560179,3.0392998951614616,2.9291435022553496,2.8379414898946997,2.7675683519131931,2.719641466102106,2.6953584668754664,2.6953584668754664,2.719641466102106,2.7675683519131926,2.8379414898946993,2.9291435022553491,3.0392998951614607,3.1664330859560175,3.3085866411702409,3.4639118169503322,3.6307185278221268,3.8074980525429476,3.9929260262557529,4.1858532608498731,4.3852900965351447,4.5903881512738858,4.8004218530382197,5.0147710809251134,5.2329055466560375,5.4543711246622166,5.6787781000897697],[5.5617979393548369,5.3324703443808774,5.1057199363435579,4.8819058370922486,4.66145101607637,4.4448553393230048,4.2327112869792769,4.025722684130149,3.8247266385067431,3.6307185278221277,3.444879190396001,3.2686022523030673,3.1035175479256938,2.9515037008259846,2.8146792820641222,2.6953584668754669,2.5959559911944345,2.5188311159472438,2.4660748797014547,2.4392689218513395,2.4392689218513395,2.4660748797014547,2.5188311159472438,2.5959559911944341,2.6953584668754664,2.8146792820641218,2.9515037008259841,3.1035175479256933,3.2686022523030669,3.4448791903960005,3.6307185278221268,3.8247266385067427,4.0257226841301481,4.2327112869792751,4.4448553393230039,4.66145101607637,4.8819058370922477,5.105719936343557,5.3324703443808765,5.5617979393548369],[5.4543711246622175,5.2203264285903419,4.9884811431650569,4.7591567162232273,4.5327357768368435,4.3096759779414393,4.0905272137291844,3.8759529379053785,3.6667563195064341,3.4639118169503327,3.2686022523030673,3.0822603282490535,2.9066112945524707,2.743709558850346,2.5959559911944345,2.4660748797014547,2.3570226039551589,2.2718006598294043,2.2131636540553936,2.1832546622982569,2.1832546622982569,2.2131636540553936,2.2718006598294038,2.3570226039551585,2.4660748797014547,2.5959559911944341,2.7437095588503455,2.9066112945524702,3.082260328249053,3.2686022523030669,3.4639118169503322,3.6667563195064332,3.8759529379053776,4.0905272137291826,4.3096759779414384,4.5327357768368435,4.7591567162232264,4.9884811431650551,5.220326428590341,5.4543711246622175],[5.3570724143015847,5.1185807122249045,4.8819058370922495,4.6473253744594505,4.4151731686468114,4.185853260849874,3.9598577465334621,3.7377896761828855,3.5203923635246106,3.3085866411702414,3.1035175479256938,2.9066112945524707,2.719641466102106,2.5447991334973348,2.3847532356074712,2.2426738057097313,2.1221724816983145,2.0271010642105001,1.9611613513818407,1.9273456895349885,1.9273456895349885,1.9611613513818404,2.0271010642104996,2.1221724816983141,2.2426738057097308,2.3847532356074708,2.5447991334973339,2.7196414661021056,2.9066112945524698,3.1035175479256929,3.3085866411702409,3.5203923635246102,3.7377896761828846,3.9598577465334603,4.1858532608498731,4.4151731686468114,4.6473253744594505,4.8819058370922477,5.1185807122249045,5.3570724143015847],[5.2704627669472988,5.0278645002891222,4.7867063339985823,4.5472173976841539,4.3096759779414393,4.0744227133514626,3.8418779650696662,3.612564821437275,3.3871396958007454,3.1664330859560179,2.9515037008259846,2.743709558850346,2.5447991334973348,2.3570226039551589,2.1832546622982569,2.0271010642105001,1.8929260333632567,1.7856908047671951,1.7104697518110688,1.6715903603083717,1.6715903603083717,1.7104697518110685,1.7856908047671949,1.8929260333632565,2.0271010642104996,2.1832546622982565,2.3570226039551581,2.5447991334973339,2.7437095588503455,2.9515037008259837,3.1664330859560175,3.3871396958007445,3.6125648214372741,3.8418779650696644,4.0744227133514617,4.3096759779414393,4.547217397684153,4.7867063339985805,5.0278645002891214,5.2704627669472988],[5.195076817783284,4.9487843757996881,4.7035734173959334,4.4596223412630991,4.2171497957432127,3.9764262613514929,3.737789676182885,3.5016667394224781,3.2686022523030673,3.0392998951614616,2.8146792820641222,2.5959559911944345,2.3847532356074712,2.1832546622982569,1.9944037418082114,1.8221372312246025,1.6715903603083719,1.5491084581531507,1.4617633655117157,1.4160719252804186,1.4160719252804184,1.4617633655117155,1.5491084581531505,1.6715903603083715,1.822137231224602,1.9944037418082108,2.1832546622982565,2.3847532356074708,2.5959559911944341,2.8146792820641213,3.0392998951614607,3.2686022523030664,3.5016667394224772,3.7377896761828833,3.9764262613514925,4.2171497957432127,4.4596223412630982,4.7035734173959316,4.9487843757996872,5.195076817783284],[5.1314092554332049,4.8819058370922486,4.6331566665622184,4.3852900965351456,4.1384647157869168,3.8928785770997378,3.6487819155788994,3.4064949373298523,3.1664330859560179,2.9291435022553496,2.6953584668754669,2.4660748797014547,2.2426738057097313,2.0271010642105001,1.8221372312246025,1.631784879661264,1.4617633655117157,1.3199525821778211,1.2162606385263002,1.1609468125817204,1.1609468125817204,1.2162606385263,1.3199525821778206,1.4617633655117153,1.6317848796612635,1.8221372312246018,2.0271010642104992,2.2426738057097308,2.4660748797014542,2.695358466875466,2.9291435022553487,3.1664330859560175,3.406494937329851,3.6487819155788976,3.8928785770997369,4.1384647157869168,4.3852900965351456,4.6331566665622166,4.8819058370922477,5.1314092554332049],[5.0799007067074227,4.8277359958365977,4.576043153224294,4.3249045624187179,4.0744227133514626,3.8247266385067431,3.575980943841373,3.3283987142941465,3.0822603282490535,2.8379414898946997,2.5959559911944345,2.3570226039551589,2.1221724816983145,1.8929260333632567,1.6715903603083719,1.4617633655117157,1.2691660175143167,1.1028622137234143,0.97638116741845027,0.90654715536736907,0.90654715536736896,0.97638116741844994,1.1028622137234136,1.269166017514316,1.4617633655117153,1.6715903603083713,1.892926033363256,2.1221724816983136,2.3570226039551581,2.5959559911944337,2.8379414898946989,3.0822603282490526,3.3283987142941456,3.5759809438413712,3.8247266385067427,4.0744227133514626,4.324904562418717,4.5760431532242922,4.8277359958365968,5.0799007067074227],[5.0409239105993588,4.7867063339985814,4.5327357768368435,4.279056222635548,4.025722684130149,3.7728048639902978,3.5203923635246106,3.2686022523030678,3.0175903322922619,2.7675683519131931,2.5188311159472438,2.2718006598294043,2.0271010642105001,1.7856908047671951,1.5491084581531507,1.3199525821778211,1.1028622137234143,0.90654715536736918,0.74755793523657754,0.65372045046061389,0.65372045046061367,0.7475579352365771,0.90654715536736852,1.1028622137234134,1.3199525821778202,1.5491084581531498,1.7856908047671944,2.0271010642104992,2.2718006598294034,2.518831115947243,2.7675683519131922,3.017590332292261,3.2686022523030664,3.5203923635246088,3.7728048639902974,4.025722684130149,4.2790562226355471,4.5327357768368408,4.7867063339985805,5.0409239105993588],[5.0147710809251143,4.7591567162232264,4.5036328385257169,4.2482157758412535,3.9929260262557533,3.737789676182885,3.4828404377451605,3.2281226441061981,2.9736957704469753,2.719641466102106,2.4660748797014547,2.2131636540553936,1.9611613513818407,1.7104697518110688,1.4617633655117157,1.2162606385263002,0.97638116741845027,0.74755793523657754,0.5439282932204218,0.40542021284210045,0.40542021284210011,0.54392829322042113,0.74755793523657676,0.97638116741844949,1.2162606385262993,1.4617633655117148,1.7104697518110679,1.9611613513818398,2.2131636540553927,2.4660748797014538,2.7196414661021051,2.9736957704469744,3.2281226441061972,3.4828404377451587,3.7377896761828846,3.9929260262557533,4.2482157758412535,4.5036328385257152,4.7591567162232264,5.0147710809251143],[5.0016433854182463,4.7453219290568578,4.4890106153875884,4.232711286979276,3.9764262613514934,3.7201584944992074,3.4639118169503327,3.2076912828709756,2.9515037008259846,2.6953584668754664,2.4392689218513395,2.1832546622982569,1.9273456895349885,1.6715903603083717,1.4160719252804186,1.1609468125817204,0.90654715536736907,0.65372045046061389,0.40542021284210045,0.18130943107347433,0.18130943107347369,0.40542021284209961,0.653720450460613,0.90654715536736818,1.1609468125817195,1.4160719252804175,1.6715903603083708,1.9273456895349876,2.183254662298256,2.4392689218513386,2.695358466875466,2.9515037008259837,3.2076912828709747,3.4639118169503309,3.720158494499207,3.9764262613514934,4.2327112869792751,4.4890106153875866,4.7453219290568569,5.0016433854182463],[5.0016433854182463,4.7453219290568578,4.4890106153875884,4.232711286979276,3.9764262613514929,3.7201584944992074,3.4639118169503322,3.2076912828709756,2.9515037008259841,2.6953584668754664,2.4392689218513395,2.1832546622982569,1.9273456895349885,1.6715903603083717,1.4160719252804184,1.1609468125817204,0.90654715536736896,0.65372045046061367,0.40542021284210011,0.18130943107347369,0.18130943107347308,0.40542021284209934,0.65372045046061289,0.90654715536736807,1.1609468125817195,1.4160719252804175,1.6715903603083708,1.9273456895349876,2.183254662298256,2.4392689218513386,2.695358466875466,2.9515037008259832,3.2076912828709743,3.4639118169503305,3.7201584944992065,3.9764262613514929,4.2327112869792751,4.4890106153875866,4.7453219290568569,5.0016433854182463],[5.0147710809251143,4.7591567162232264,4.5036328385257169,4.2482157758412535,3.9929260262557533,3.737789676182885,3.4828404377451601,3.2281226441061981,2.9736957704469749,2.719641466102106,2.4660748797014547,2.2131636540553936,1.9611613513818404,1.7104697518110685,1.4617633655117155,1.2162606385263,0.97638116741844994,0.7475579352365771,0.54392829322042113,0.40542021284209961,0.40542021284209934,0.54392829322042047,0.74755793523657632,0.97638116741844916,1.2162606385262991,1.4617633655117146,1.7104697518110679,1.9611613513818396,2.2131636540553927,2.4660748797014538,2.7196414661021051,2.973695770446974,3.2281226441061968,3.4828404377451583,3.7377896761828842,3.9929260262557533,4.2482157758412535,4.5036328385257152,4.7591567162232264,5.0147710809251143],[5.0409239105993588,4.7867063339985814,4.5327357768368435,4.279056222635548,4.025722684130149,3.7728048639902978,3.5203923635246106,3.2686022523030673,3.0175903322922615,2.7675683519131926,2.5188311159472438,2.2718006598294038,2.0271010642104996,1.7856908047671949,1.5491084581531505,1.3199525821778206,1.1028622137234136,0.90654715536736852,0.74755793523657676,0.653720450460613,0.65372045046061289,0.74755793523657632,0.90654715536736796,1.102862213723413,1.31995258217782,1.5491084581531496,1.785690804767194,2.0271010642104987,2.2718006598294034,2.518831115947243,2.7675683519131917,3.0175903322922606,3.2686022523030664,3.5203923635246088,3.7728048639902969,4.025722684130149,4.2790562226355471,4.5327357768368408,4.7867063339985805,5.0409239105993588],[5.0799007067074227,4.8277359958365977,4.576043153224294,4.3249045624187179,4.0744227133514626,3.8247266385067431,3.5759809438413726,3.3283987142941465,3.0822603282490535,2.8379414898946993,2.5959559911944341,2.3570226039551585,2.1221724816983141,1.8929260333632565,1.6715903603083715,1.4617633655117153,1.269166017514316,1.1028622137234134,0.97638116741844949,0.90654715536736818,0.90654715536736807,0.97638116741844916,1.102862213723413,1.2691660175143153,1.4617633655117146,1.6715903603083706,1.8929260333632558,2.1221724816983132,2.3570226039551576,2.5959559911944332,2.8379414898946989,3.0822603282490526,3.3283987142941451,3.5759809438413708,3.8247266385067422,4.0744227133514626,4.324904562418717,4.5760431532242922,4.8277359958365968,5.0799007067074227],[5.1314092554332049,4.8819058370922486,4.6331566665622184,4.3852900965351456,4.1384647157869168,3.8928785770997374,3.648781915578899,3.4064949373298519,3.1664330859560175,2.9291435022553491,2.6953584668754664,2.4660748797014547,2.2426738057097308,2.0271010642104996,1.822137231224602,1.6317848796612635,1.4617633655117153,1.3199525821778202,1.2162606385262993,1.1609468125817195,1.1609468125817195,1.2162606385262991,1.31995258217782,1.4617633655117146,1.6317848796612628,1.8221372312246011,2.0271010642104987,2.2426738057097304,2.4660748797014538,2.6953584668754655,2.9291435022553483,3.1664330859560166,3.406494937329851,3.6487819155788972,3.8928785770997365,4.1384647157869168,4.3852900965351456,4.6331566665622166,4.8819058370922477,5.1314092554332049],[5.195076817783284,4.9487843757996872,4.7035734173959334,4.4596223412630982,4.2171497957432118,3.9764262613514929,3.737789676182885,3.5016667394224776,3.2686022523030669,3.0392998951614607,2.8146792820641218,2.5959559911944341,2.3847532356074708,2.1832546622982565,1.9944037418082108,1.8221372312246018,1.6715903603083713,1.5491084581531498,1.4617633655117148,1.4160719252804175,1.4160719252804175,1.4617633655117146,1.5491084581531496,1.6715903603083706,1.8221372312246011,1.9944037418082101,2.1832546622982556,2.3847532356074703,2.5959559911944337,2.8146792820641209,3.0392998951614603,3.2686022523030664,3.5016667394224767,3.7377896761828833,3.976426261351492,4.2171497957432118,4.4596223412630982,4.7035734173959316,4.9487843757996863,5.195076817783284],[5.2704627669472988,5.0278645002891222,4.7867063339985814,4.547217397684153,4.3096759779414384,4.0744227133514626,3.8418779650696657,3.6125648214372745,3.3871396958007449,3.1664330859560175,2.9515037008259841,2.7437095588503455,2.5447991334973339,2.3570226039551581,2.1832546622982565,2.0271010642104992,1.892926033363256,1.7856908047671944,1.7104697518110679,1.6715903603083708,1.6715903603083708,1.7104697518110679,1.785690804767194,1.8929260333632558,2.0271010642104987,2.1832546622982556,2.3570226039551576,2.5447991334973334,2.7437095588503451,2.9515037008259832,3.1664330859560166,3.3871396958007445,3.6125648214372736,3.8418779650696639,4.0744227133514617,4.3096759779414384,4.5472173976841521,4.7867063339985796,5.0278645002891214,5.2704627669472988],[5.3570724143015838,5.1185807122249045,4.8819058370922486,4.6473253744594505,4.4151731686468114,4.185853260849874,3.9598577465334617,3.737789676182885,3.5203923635246102,3.3085866411702409,3.1035175479256933,2.9066112945524702,2.7196414661021056,2.5447991334973339,2.3847532356074708,2.2426738057097308,2.1221724816983136,2.0271010642104992,1.9611613513818398,1.9273456895349876,1.9273456895349876,1.9611613513818396,2.0271010642104987,2.1221724816983132,2.2426738057097304,2.3847532356074703,2.5447991334973334,2.7196414661021051,2.9066112945524694,3.1035175479256925,3.30858664117024,3.5203923635246097,3.7377896761828837,3.9598577465334599,4.1858532608498731,4.4151731686468114,4.6473253744594496,4.8819058370922468,5.1185807122249036,5.3570724143015838],[5.4543711246622175,5.220326428590341,4.988481143165056,4.7591567162232264,4.5327357768368435,4.3096759779414384,4.0905272137291835,3.8759529379053781,3.6667563195064337,3.4639118169503322,3.2686022523030669,3.082260328249053,2.9066112945524698,2.7437095588503455,2.5959559911944341,2.4660748797014542,2.3570226039551581,2.2718006598294034,2.2131636540553927,2.183254662298256,2.183254662298256,2.2131636540553927,2.2718006598294034,2.3570226039551576,2.4660748797014538,2.5959559911944337,2.7437095588503451,2.9066112945524694,3.0822603282490526,3.2686022523030664,3.4639118169503313,3.6667563195064328,3.8759529379053772,4.0905272137291826,4.3096759779414375,4.5327357768368435,4.7591567162232264,4.9884811431650542,5.2203264285903401,5.4543711246622175],[5.561797939354836,5.3324703443808765,5.1057199363435579,4.8819058370922486,4.66145101607637,4.4448553393230039,4.232711286979276,4.025722684130149,3.8247266385067427,3.6307185278221268,3.4448791903960005,3.2686022523030669,3.1035175479256929,2.9515037008259837,2.8146792820641213,2.695358466875466,2.5959559911944337,2.518831115947243,2.4660748797014538,2.4392689218513386,2.4392689218513386,2.4660748797014538,2.518831115947243,2.5959559911944332,2.6953584668754655,2.8146792820641209,2.9515037008259832,3.1035175479256925,3.2686022523030664,3.4448791903959997,3.6307185278221259,3.8247266385067422,4.0257226841301481,4.2327112869792742,4.444855339323003,4.66145101607637,4.8819058370922477,5.1057199363435561,5.3324703443808756,5.561797939354836],[5.6787781000897688,5.4543711246622166,5.2329055466560384,5.0147710809251143,4.8004218530382188,4.5903881512738858,4.3852900965351456,4.185853260849874,3.9929260262557529,3.8074980525429476,3.6307185278221268,3.4639118169503322,3.3085866411702409,3.1664330859560175,3.0392998951614607,2.9291435022553487,2.8379414898946989,2.7675683519131922,2.7196414661021051,2.695358466875466,2.695358466875466,2.7196414661021051,2.7675683519131917,2.8379414898946989,2.9291435022553483,3.0392998951614603,3.1664330859560166,3.30858664117024,3.4639118169503313,3.6307185278221259,3.8074980525429472,3.992926026255752,4.1858532608498731,4.3852900965351447,4.5903881512738849,4.8004218530382188,5.0147710809251134,5.2329055466560366,5.4543711246622157,5.6787781000897688],[5.8047340629085999,5.5853899771261446,5.3693311772748515,5.1569706054150677,4.9487843757996881,4.7453219290568578,4.547217397684153,4.3552019875546222,4.1701169146898946,3.9929260262557529,3.8247266385067427,3.6667563195064332,3.5203923635246102,3.3871396958007445,3.2686022523030664,3.1664330859560175,3.0822603282490526,3.017590332292261,2.9736957704469744,2.9515037008259837,2.9515037008259832,2.973695770446974,3.0175903322922606,3.0822603282490526,3.1664330859560166,3.2686022523030664,3.3871396958007445,3.5203923635246097,3.6667563195064328,3.8247266385067422,3.992926026255752,4.1701169146898946,4.3552019875546213,4.5472173976841521,4.7453219290568569,4.9487843757996881,5.1569706054150668,5.3693311772748507,5.5853899771261437,5.8047340629085999],[5.9390947804617786,5.7249009132733608,5.5143110686170678,5.3077542421754993,5.1057199363435579,4.9087665946350372,4.7175306392241279,4.5327357768368426,4.3552019875546222,4.1858532608498731,4.0257226841301481,3.8759529379053776,3.7377896761828846,3.6125648214372741,3.5016667394224772,3.406494937329851,3.3283987142941456,3.2686022523030664,3.2281226441061972,3.2076912828709747,3.2076912828709743,3.2281226441061968,3.2686022523030664,3.3283987142941451,3.406494937329851,3.5016667394224767,3.6125648214372736,3.7377896761828837,3.8759529379053772,4.0257226841301481,4.1858532608498731,4.3552019875546213,4.5327357768368417,4.7175306392241261,4.9087665946350372,5.1057199363435579,5.3077542421754993,5.514311068617066,5.724900913273359,5.9390947804617786],[6.0813031926314975,5.8722987131275826,5.6671887449488052,5.4664116936738045,5.2704627669472979,5.0799007067074218,4.8953546389837896,4.717530639224127,4.5472173976841521,4.3852900965351447,4.2327112869792751,4.0905272137291826,3.9598577465334603,3.8418779650696644,3.7377896761828833,3.6487819155788976,3.5759809438413712,3.5203923635246088,3.4828404377451587,3.4639118169503309,3.4639118169503305,3.4828404377451583,3.5203923635246088,3.5759809438413708,3.6487819155788972,3.7377896761828833,3.8418779650696639,3.9598577465334599,4.0905272137291826,4.2327112869792742,4.3852900965351447,4.5472173976841521,4.7175306392241261,4.8953546389837879,5.0799007067074218,5.2704627669472979,5.4664116936738045,5.6671887449488043,5.8722987131275808,6.0813031926314975],[6.2308219898578798,6.0270047556631576,5.827342655058211,5.6322775990996909,5.4423039171259289,5.2579735011307376,5.0799007067074227,4.9087665946350381,4.7453219290568578,4.5903881512738858,4.4448553393230039,4.3096759779414384,4.1858532608498731,4.0744227133514617,3.9764262613514925,3.8928785770997369,3.8247266385067427,3.7728048639902974,3.7377896761828846,3.720158494499207,3.7201584944992065,3.7377896761828842,3.7728048639902969,3.8247266385067422,3.8928785770997365,3.976426261351492,4.0744227133514617,4.1858532608498731,4.3096759779414375,4.444855339323003,4.5903881512738849,4.7453219290568569,4.9087665946350372,5.0799007067074218,5.2579735011307367,5.4423039171259289,5.6322775990996901,5.8273426550582093,6.0270047556631567,6.2308219898578798],[6.3871377985031543,6.1884709672549594,5.9941896038774152,5.8047340629086008,5.6205923632776855,5.4423039171259298,5.2704627669472988,5.1057199363435588,4.9487843757996881,4.8004218530382197,4.66145101607637,4.5327357768368435,4.4151731686468114,4.3096759779414393,4.2171497957432127,4.1384647157869168,4.0744227133514626,4.025722684130149,3.9929260262557533,3.9764262613514934,3.9764262613514929,3.9929260262557533,4.025722684130149,4.0744227133514626,4.1384647157869168,4.2171497957432118,4.3096759779414384,4.4151731686468114,4.5327357768368435,4.66145101607637,4.8004218530382188,4.9487843757996881,5.1057199363435579,5.2704627669472979,5.4423039171259289,5.6205923632776855,5.8047340629085999,5.9941896038774143,6.1884709672549585,6.3871377985031543],[6.549763986894769,6.3561821826874558,6.1671863952849701,5.9832112254246326,5.8047340629085999,5.6322775990996909,5.4664116936738054,5.3077542421754993,5.1569706054150677,5.0147710809251134,4.8819058370922477,4.7591567162232264,4.6473253744594505,4.547217397684153,4.4596223412630982,4.3852900965351456,4.324904562418717,4.2790562226355471,4.2482157758412535,4.2327112869792751,4.2327112869792751,4.2482157758412535,4.2790562226355471,4.324904562418717,4.3852900965351456,4.4596223412630982,4.5472173976841521,4.6473253744594496,4.7591567162232264,4.8819058370922477,5.0147710809251134,5.1569706054150668,5.3077542421754993,5.4664116936738045,5.6322775990996901,5.8047340629085999,5.9832112254246317,6.1671863952849684,6.3561821826874558,6.549763986894769],[6.7182423110635376,6.5296572196137648,6.3458300875715787,6.1671863952849701,5.9941896038774143,5.8273426550582093,5.6671887449488043,5.5143110686170669,5.3693311772748507,5.2329055466560375,5.105719936343557,4.9884811431650551,4.8819058370922477,4.7867063339985805,4.7035734173959316,4.6331566665622166,4.5760431532242922,4.5327357768368408,4.5036328385257152,4.4890106153875866,4.4890106153875866,4.5036328385257152,4.5327357768368408,4.5760431532242922,4.6331566665622166,4.7035734173959316,4.7867063339985796,4.8819058370922468,4.9884811431650542,5.1057199363435561,5.2329055466560366,5.3693311772748507,5.514311068617066,5.6671887449488043,5.8273426550582093,5.9941896038774143,6.1671863952849684,6.3458300875715778,6.5296572196137639,6.7182423110635376],[6.8921436183156981,6.7084489497185267,6.5296572196137657,6.3561821826874558,6.1884709672549585,6.0270047556631576,5.8722987131275826,5.7249009132733608,5.5853899771261437,5.4543711246622166,5.3324703443808765,5.220326428590341,5.1185807122249045,5.0278645002891214,4.9487843757996872,4.8819058370922477,4.8277359958365968,4.7867063339985805,4.7591567162232264,4.7453219290568569,4.7453219290568569,4.7591567162232264,4.7867063339985805,4.8277359958365968,4.8819058370922477,4.9487843757996863,5.0278645002891214,5.1185807122249036,5.2203264285903401,5.3324703443808756,5.4543711246622157,5.5853899771261437,5.724900913273359,5.8722987131275808,6.0270047556631567,6.1884709672549585,6.3561821826874558,6.5296572196137639,6.7084489497185267,6.8921436183156981],[7.0710678118654755,6.8921436183156981,6.7182423110635394,6.549763986894769,6.3871377985031543,6.2308219898578807,6.0813031926314984,5.9390947804617795,5.8047340629086008,5.6787781000897697,5.5617979393548369,5.4543711246622175,5.3570724143015847,5.2704627669472988,5.195076817783284,5.1314092554332049,5.0799007067074227,5.0409239105993588,5.0147710809251143,5.0016433854182463,5.0016433854182463,5.0147710809251143,5.0409239105993588,5.0799007067074227,5.1314092554332049,5.195076817783284,5.2704627669472988,5.3570724143015838,5.4543711246622175,5.561797939354836,5.6787781000897688,5.8047340629085999,5.9390947804617786,6.0813031926314975,6.2308219898578798,6.3871377985031543,6.549763986894769,6.7182423110635376,6.8921436183156981,7.0710678118654755]],"type":"surface","name":"K+ (Subespacio Positivo)","opacity":0.80000000000000004,"frame":null},{"colorbar":{"title":"z_pos<br />z_neg","ticklen":2},"colorscale":[[0,"#8b0000"],[1,"#f8f9fa"]],"showscale":false,"x":[-5,-4.7435897435897436,-4.4871794871794872,-4.2307692307692308,-3.9743589743589745,-3.7179487179487181,-3.4615384615384617,-3.2051282051282053,-2.9487179487179489,-2.6923076923076925,-2.4358974358974361,-2.1794871794871797,-1.9230769230769234,-1.666666666666667,-1.4102564102564106,-1.1538461538461542,-0.8974358974358978,-0.64102564102564141,-0.38461538461538503,-0.12820512820512864,0.12820512820512775,0.38461538461538414,0.64102564102564052,0.89743589743589691,1.1538461538461533,1.4102564102564097,1.6666666666666661,1.9230769230769225,2.1794871794871788,2.4358974358974352,2.6923076923076916,2.948717948717948,3.2051282051282044,3.4615384615384599,3.7179487179487172,3.9743589743589745,4.2307692307692299,4.4871794871794854,4.7435897435897427,5],"y":[-5,-4.7435897435897436,-4.4871794871794872,-4.2307692307692308,-3.9743589743589745,-3.7179487179487181,-3.4615384615384617,-3.2051282051282053,-2.9487179487179489,-2.6923076923076925,-2.4358974358974361,-2.1794871794871797,-1.9230769230769234,-1.666666666666667,-1.4102564102564106,-1.1538461538461542,-0.8974358974358978,-0.64102564102564141,-0.38461538461538503,-0.12820512820512864,0.12820512820512775,0.38461538461538414,0.64102564102564052,0.89743589743589691,1.1538461538461533,1.4102564102564097,1.6666666666666661,1.9230769230769225,2.1794871794871788,2.4358974358974352,2.6923076923076916,2.948717948717948,3.2051282051282044,3.4615384615384599,3.7179487179487172,3.9743589743589745,4.2307692307692299,4.4871794871794854,4.7435897435897427,5],"z":[[-7.0710678118654755,-6.8921436183156981,-6.7182423110635394,-6.549763986894769,-6.3871377985031543,-6.2308219898578807,-6.0813031926314984,-5.9390947804617795,-5.8047340629086008,-5.6787781000897697,-5.5617979393548369,-5.4543711246622175,-5.3570724143015847,-5.2704627669472988,-5.195076817783284,-5.1314092554332049,-5.0799007067074227,-5.0409239105993588,-5.0147710809251143,-5.0016433854182463,-5.0016433854182463,-5.0147710809251143,-5.0409239105993588,-5.0799007067074227,-5.1314092554332049,-5.195076817783284,-5.2704627669472988,-5.3570724143015838,-5.4543711246622175,-5.561797939354836,-5.6787781000897688,-5.8047340629085999,-5.9390947804617786,-6.0813031926314975,-6.2308219898578798,-6.3871377985031543,-6.549763986894769,-6.7182423110635376,-6.8921436183156981,-7.0710678118654755],[-6.8921436183156981,-6.7084489497185276,-6.5296572196137657,-6.3561821826874567,-6.1884709672549594,-6.0270047556631576,-5.8722987131275826,-5.7249009132733608,-5.5853899771261446,-5.4543711246622175,-5.3324703443808774,-5.2203264285903419,-5.1185807122249045,-5.0278645002891222,-4.9487843757996881,-4.8819058370922486,-4.8277359958365977,-4.7867063339985814,-4.7591567162232264,-4.7453219290568578,-4.7453219290568578,-4.7591567162232264,-4.7867063339985814,-4.8277359958365977,-4.8819058370922486,-4.9487843757996872,-5.0278645002891222,-5.1185807122249045,-5.220326428590341,-5.3324703443808765,-5.4543711246622166,-5.5853899771261446,-5.7249009132733608,-5.8722987131275826,-6.0270047556631576,-6.1884709672549594,-6.3561821826874558,-6.5296572196137648,-6.7084489497185267,-6.8921436183156981],[-6.7182423110635394,-6.5296572196137657,-6.3458300875715805,-6.167186395284971,-5.9941896038774152,-5.8273426550582119,-5.6671887449488061,-5.5143110686170687,-5.3693311772748524,-5.2329055466560392,-5.1057199363435579,-4.9884811431650569,-4.8819058370922495,-4.7867063339985823,-4.7035734173959334,-4.6331566665622184,-4.576043153224294,-4.5327357768368435,-4.5036328385257169,-4.4890106153875884,-4.4890106153875884,-4.5036328385257169,-4.5327357768368435,-4.576043153224294,-4.6331566665622184,-4.7035734173959334,-4.7867063339985814,-4.8819058370922486,-4.988481143165056,-5.1057199363435579,-5.2329055466560384,-5.3693311772748515,-5.5143110686170678,-5.6671887449488052,-5.827342655058211,-5.9941896038774152,-6.1671863952849701,-6.3458300875715787,-6.5296572196137657,-6.7182423110635394],[-6.549763986894769,-6.3561821826874567,-6.167186395284971,-5.9832112254246326,-5.8047340629086008,-5.6322775990996909,-5.4664116936738063,-5.3077542421755002,-5.1569706054150686,-5.0147710809251143,-4.8819058370922486,-4.7591567162232273,-4.6473253744594505,-4.5472173976841539,-4.4596223412630991,-4.3852900965351456,-4.3249045624187179,-4.279056222635548,-4.2482157758412535,-4.232711286979276,-4.232711286979276,-4.2482157758412535,-4.279056222635548,-4.3249045624187179,-4.3852900965351456,-4.4596223412630982,-4.547217397684153,-4.6473253744594505,-4.7591567162232264,-4.8819058370922486,-5.0147710809251143,-5.1569706054150677,-5.3077542421754993,-5.4664116936738045,-5.6322775990996909,-5.8047340629086008,-5.9832112254246326,-6.1671863952849701,-6.3561821826874558,-6.549763986894769],[-6.3871377985031543,-6.1884709672549594,-5.9941896038774152,-5.8047340629086008,-5.6205923632776855,-5.4423039171259298,-5.2704627669472988,-5.1057199363435588,-4.9487843757996881,-4.8004218530382197,-4.66145101607637,-4.5327357768368435,-4.4151731686468114,-4.3096759779414393,-4.2171497957432127,-4.1384647157869168,-4.0744227133514626,-4.025722684130149,-3.9929260262557533,-3.9764262613514934,-3.9764262613514929,-3.9929260262557533,-4.025722684130149,-4.0744227133514626,-4.1384647157869168,-4.2171497957432118,-4.3096759779414384,-4.4151731686468114,-4.5327357768368435,-4.66145101607637,-4.8004218530382188,-4.9487843757996881,-5.1057199363435579,-5.2704627669472979,-5.4423039171259289,-5.6205923632776855,-5.8047340629085999,-5.9941896038774143,-6.1884709672549585,-6.3871377985031543],[-6.2308219898578807,-6.0270047556631576,-5.8273426550582119,-5.6322775990996909,-5.4423039171259298,-5.2579735011307385,-5.0799007067074227,-4.9087665946350381,-4.7453219290568587,-4.5903881512738867,-4.4448553393230048,-4.3096759779414393,-4.185853260849874,-4.0744227133514626,-3.9764262613514929,-3.8928785770997378,-3.8247266385067431,-3.7728048639902978,-3.737789676182885,-3.7201584944992074,-3.7201584944992074,-3.737789676182885,-3.7728048639902978,-3.8247266385067431,-3.8928785770997374,-3.9764262613514929,-4.0744227133514626,-4.185853260849874,-4.3096759779414384,-4.4448553393230039,-4.5903881512738858,-4.7453219290568578,-4.9087665946350372,-5.0799007067074218,-5.2579735011307376,-5.4423039171259298,-5.6322775990996909,-5.8273426550582093,-6.0270047556631576,-6.2308219898578807],[-6.0813031926314984,-5.8722987131275826,-5.6671887449488061,-5.4664116936738063,-5.2704627669472988,-5.0799007067074227,-4.8953546389837905,-4.7175306392241287,-4.5472173976841539,-4.3852900965351465,-4.2327112869792769,-4.0905272137291844,-3.9598577465334621,-3.8418779650696662,-3.737789676182885,-3.6487819155788994,-3.575980943841373,-3.5203923635246106,-3.4828404377451605,-3.4639118169503327,-3.4639118169503322,-3.4828404377451601,-3.5203923635246106,-3.5759809438413726,-3.648781915578899,-3.737789676182885,-3.8418779650696657,-3.9598577465334617,-4.0905272137291835,-4.232711286979276,-4.3852900965351456,-4.547217397684153,-4.7175306392241279,-4.8953546389837896,-5.0799007067074227,-5.2704627669472988,-5.4664116936738054,-5.6671887449488043,-5.8722987131275826,-6.0813031926314984],[-5.9390947804617795,-5.7249009132733608,-5.5143110686170687,-5.3077542421755002,-5.1057199363435588,-4.9087665946350381,-4.7175306392241287,-4.5327357768368435,-4.3552019875546231,-4.185853260849874,-4.025722684130149,-3.8759529379053785,-3.7377896761828855,-3.612564821437275,-3.5016667394224781,-3.4064949373298523,-3.3283987142941465,-3.2686022523030678,-3.2281226441061981,-3.2076912828709756,-3.2076912828709756,-3.2281226441061981,-3.2686022523030673,-3.3283987142941465,-3.4064949373298519,-3.5016667394224776,-3.6125648214372745,-3.737789676182885,-3.8759529379053781,-4.025722684130149,-4.185853260849874,-4.3552019875546222,-4.5327357768368426,-4.717530639224127,-4.9087665946350381,-5.1057199363435588,-5.3077542421754993,-5.5143110686170669,-5.7249009132733608,-5.9390947804617795],[-5.8047340629086008,-5.5853899771261446,-5.3693311772748524,-5.1569706054150686,-4.9487843757996881,-4.7453219290568587,-4.5472173976841539,-4.3552019875546231,-4.1701169146898955,-3.9929260262557533,-3.8247266385067431,-3.6667563195064341,-3.5203923635246106,-3.3871396958007454,-3.2686022523030673,-3.1664330859560179,-3.0822603282490535,-3.0175903322922619,-2.9736957704469753,-2.9515037008259846,-2.9515037008259841,-2.9736957704469749,-3.0175903322922615,-3.0822603282490535,-3.1664330859560175,-3.2686022523030669,-3.3871396958007449,-3.5203923635246102,-3.6667563195064337,-3.8247266385067427,-3.9929260262557529,-4.1701169146898946,-4.3552019875546222,-4.5472173976841521,-4.7453219290568578,-4.9487843757996881,-5.1569706054150677,-5.3693311772748507,-5.5853899771261437,-5.8047340629086008],[-5.6787781000897697,-5.4543711246622175,-5.2329055466560392,-5.0147710809251143,-4.8004218530382197,-4.5903881512738867,-4.3852900965351465,-4.185853260849874,-3.9929260262557533,-3.8074980525429485,-3.6307185278221277,-3.4639118169503327,-3.3085866411702414,-3.1664330859560179,-3.0392998951614616,-2.9291435022553496,-2.8379414898946997,-2.7675683519131931,-2.719641466102106,-2.6953584668754664,-2.6953584668754664,-2.719641466102106,-2.7675683519131926,-2.8379414898946993,-2.9291435022553491,-3.0392998951614607,-3.1664330859560175,-3.3085866411702409,-3.4639118169503322,-3.6307185278221268,-3.8074980525429476,-3.9929260262557529,-4.1858532608498731,-4.3852900965351447,-4.5903881512738858,-4.8004218530382197,-5.0147710809251134,-5.2329055466560375,-5.4543711246622166,-5.6787781000897697],[-5.5617979393548369,-5.3324703443808774,-5.1057199363435579,-4.8819058370922486,-4.66145101607637,-4.4448553393230048,-4.2327112869792769,-4.025722684130149,-3.8247266385067431,-3.6307185278221277,-3.444879190396001,-3.2686022523030673,-3.1035175479256938,-2.9515037008259846,-2.8146792820641222,-2.6953584668754669,-2.5959559911944345,-2.5188311159472438,-2.4660748797014547,-2.4392689218513395,-2.4392689218513395,-2.4660748797014547,-2.5188311159472438,-2.5959559911944341,-2.6953584668754664,-2.8146792820641218,-2.9515037008259841,-3.1035175479256933,-3.2686022523030669,-3.4448791903960005,-3.6307185278221268,-3.8247266385067427,-4.0257226841301481,-4.2327112869792751,-4.4448553393230039,-4.66145101607637,-4.8819058370922477,-5.105719936343557,-5.3324703443808765,-5.5617979393548369],[-5.4543711246622175,-5.2203264285903419,-4.9884811431650569,-4.7591567162232273,-4.5327357768368435,-4.3096759779414393,-4.0905272137291844,-3.8759529379053785,-3.6667563195064341,-3.4639118169503327,-3.2686022523030673,-3.0822603282490535,-2.9066112945524707,-2.743709558850346,-2.5959559911944345,-2.4660748797014547,-2.3570226039551589,-2.2718006598294043,-2.2131636540553936,-2.1832546622982569,-2.1832546622982569,-2.2131636540553936,-2.2718006598294038,-2.3570226039551585,-2.4660748797014547,-2.5959559911944341,-2.7437095588503455,-2.9066112945524702,-3.082260328249053,-3.2686022523030669,-3.4639118169503322,-3.6667563195064332,-3.8759529379053776,-4.0905272137291826,-4.3096759779414384,-4.5327357768368435,-4.7591567162232264,-4.9884811431650551,-5.220326428590341,-5.4543711246622175],[-5.3570724143015847,-5.1185807122249045,-4.8819058370922495,-4.6473253744594505,-4.4151731686468114,-4.185853260849874,-3.9598577465334621,-3.7377896761828855,-3.5203923635246106,-3.3085866411702414,-3.1035175479256938,-2.9066112945524707,-2.719641466102106,-2.5447991334973348,-2.3847532356074712,-2.2426738057097313,-2.1221724816983145,-2.0271010642105001,-1.9611613513818407,-1.9273456895349885,-1.9273456895349885,-1.9611613513818404,-2.0271010642104996,-2.1221724816983141,-2.2426738057097308,-2.3847532356074708,-2.5447991334973339,-2.7196414661021056,-2.9066112945524698,-3.1035175479256929,-3.3085866411702409,-3.5203923635246102,-3.7377896761828846,-3.9598577465334603,-4.1858532608498731,-4.4151731686468114,-4.6473253744594505,-4.8819058370922477,-5.1185807122249045,-5.3570724143015847],[-5.2704627669472988,-5.0278645002891222,-4.7867063339985823,-4.5472173976841539,-4.3096759779414393,-4.0744227133514626,-3.8418779650696662,-3.612564821437275,-3.3871396958007454,-3.1664330859560179,-2.9515037008259846,-2.743709558850346,-2.5447991334973348,-2.3570226039551589,-2.1832546622982569,-2.0271010642105001,-1.8929260333632567,-1.7856908047671951,-1.7104697518110688,-1.6715903603083717,-1.6715903603083717,-1.7104697518110685,-1.7856908047671949,-1.8929260333632565,-2.0271010642104996,-2.1832546622982565,-2.3570226039551581,-2.5447991334973339,-2.7437095588503455,-2.9515037008259837,-3.1664330859560175,-3.3871396958007445,-3.6125648214372741,-3.8418779650696644,-4.0744227133514617,-4.3096759779414393,-4.547217397684153,-4.7867063339985805,-5.0278645002891214,-5.2704627669472988],[-5.195076817783284,-4.9487843757996881,-4.7035734173959334,-4.4596223412630991,-4.2171497957432127,-3.9764262613514929,-3.737789676182885,-3.5016667394224781,-3.2686022523030673,-3.0392998951614616,-2.8146792820641222,-2.5959559911944345,-2.3847532356074712,-2.1832546622982569,-1.9944037418082114,-1.8221372312246025,-1.6715903603083719,-1.5491084581531507,-1.4617633655117157,-1.4160719252804186,-1.4160719252804184,-1.4617633655117155,-1.5491084581531505,-1.6715903603083715,-1.822137231224602,-1.9944037418082108,-2.1832546622982565,-2.3847532356074708,-2.5959559911944341,-2.8146792820641213,-3.0392998951614607,-3.2686022523030664,-3.5016667394224772,-3.7377896761828833,-3.9764262613514925,-4.2171497957432127,-4.4596223412630982,-4.7035734173959316,-4.9487843757996872,-5.195076817783284],[-5.1314092554332049,-4.8819058370922486,-4.6331566665622184,-4.3852900965351456,-4.1384647157869168,-3.8928785770997378,-3.6487819155788994,-3.4064949373298523,-3.1664330859560179,-2.9291435022553496,-2.6953584668754669,-2.4660748797014547,-2.2426738057097313,-2.0271010642105001,-1.8221372312246025,-1.631784879661264,-1.4617633655117157,-1.3199525821778211,-1.2162606385263002,-1.1609468125817204,-1.1609468125817204,-1.2162606385263,-1.3199525821778206,-1.4617633655117153,-1.6317848796612635,-1.8221372312246018,-2.0271010642104992,-2.2426738057097308,-2.4660748797014542,-2.695358466875466,-2.9291435022553487,-3.1664330859560175,-3.406494937329851,-3.6487819155788976,-3.8928785770997369,-4.1384647157869168,-4.3852900965351456,-4.6331566665622166,-4.8819058370922477,-5.1314092554332049],[-5.0799007067074227,-4.8277359958365977,-4.576043153224294,-4.3249045624187179,-4.0744227133514626,-3.8247266385067431,-3.575980943841373,-3.3283987142941465,-3.0822603282490535,-2.8379414898946997,-2.5959559911944345,-2.3570226039551589,-2.1221724816983145,-1.8929260333632567,-1.6715903603083719,-1.4617633655117157,-1.2691660175143167,-1.1028622137234143,-0.97638116741845027,-0.90654715536736907,-0.90654715536736896,-0.97638116741844994,-1.1028622137234136,-1.269166017514316,-1.4617633655117153,-1.6715903603083713,-1.892926033363256,-2.1221724816983136,-2.3570226039551581,-2.5959559911944337,-2.8379414898946989,-3.0822603282490526,-3.3283987142941456,-3.5759809438413712,-3.8247266385067427,-4.0744227133514626,-4.324904562418717,-4.5760431532242922,-4.8277359958365968,-5.0799007067074227],[-5.0409239105993588,-4.7867063339985814,-4.5327357768368435,-4.279056222635548,-4.025722684130149,-3.7728048639902978,-3.5203923635246106,-3.2686022523030678,-3.0175903322922619,-2.7675683519131931,-2.5188311159472438,-2.2718006598294043,-2.0271010642105001,-1.7856908047671951,-1.5491084581531507,-1.3199525821778211,-1.1028622137234143,-0.90654715536736918,-0.74755793523657754,-0.65372045046061389,-0.65372045046061367,-0.7475579352365771,-0.90654715536736852,-1.1028622137234134,-1.3199525821778202,-1.5491084581531498,-1.7856908047671944,-2.0271010642104992,-2.2718006598294034,-2.518831115947243,-2.7675683519131922,-3.017590332292261,-3.2686022523030664,-3.5203923635246088,-3.7728048639902974,-4.025722684130149,-4.2790562226355471,-4.5327357768368408,-4.7867063339985805,-5.0409239105993588],[-5.0147710809251143,-4.7591567162232264,-4.5036328385257169,-4.2482157758412535,-3.9929260262557533,-3.737789676182885,-3.4828404377451605,-3.2281226441061981,-2.9736957704469753,-2.719641466102106,-2.4660748797014547,-2.2131636540553936,-1.9611613513818407,-1.7104697518110688,-1.4617633655117157,-1.2162606385263002,-0.97638116741845027,-0.74755793523657754,-0.5439282932204218,-0.40542021284210045,-0.40542021284210011,-0.54392829322042113,-0.74755793523657676,-0.97638116741844949,-1.2162606385262993,-1.4617633655117148,-1.7104697518110679,-1.9611613513818398,-2.2131636540553927,-2.4660748797014538,-2.7196414661021051,-2.9736957704469744,-3.2281226441061972,-3.4828404377451587,-3.7377896761828846,-3.9929260262557533,-4.2482157758412535,-4.5036328385257152,-4.7591567162232264,-5.0147710809251143],[-5.0016433854182463,-4.7453219290568578,-4.4890106153875884,-4.232711286979276,-3.9764262613514934,-3.7201584944992074,-3.4639118169503327,-3.2076912828709756,-2.9515037008259846,-2.6953584668754664,-2.4392689218513395,-2.1832546622982569,-1.9273456895349885,-1.6715903603083717,-1.4160719252804186,-1.1609468125817204,-0.90654715536736907,-0.65372045046061389,-0.40542021284210045,-0.18130943107347433,-0.18130943107347369,-0.40542021284209961,-0.653720450460613,-0.90654715536736818,-1.1609468125817195,-1.4160719252804175,-1.6715903603083708,-1.9273456895349876,-2.183254662298256,-2.4392689218513386,-2.695358466875466,-2.9515037008259837,-3.2076912828709747,-3.4639118169503309,-3.720158494499207,-3.9764262613514934,-4.2327112869792751,-4.4890106153875866,-4.7453219290568569,-5.0016433854182463],[-5.0016433854182463,-4.7453219290568578,-4.4890106153875884,-4.232711286979276,-3.9764262613514929,-3.7201584944992074,-3.4639118169503322,-3.2076912828709756,-2.9515037008259841,-2.6953584668754664,-2.4392689218513395,-2.1832546622982569,-1.9273456895349885,-1.6715903603083717,-1.4160719252804184,-1.1609468125817204,-0.90654715536736896,-0.65372045046061367,-0.40542021284210011,-0.18130943107347369,-0.18130943107347308,-0.40542021284209934,-0.65372045046061289,-0.90654715536736807,-1.1609468125817195,-1.4160719252804175,-1.6715903603083708,-1.9273456895349876,-2.183254662298256,-2.4392689218513386,-2.695358466875466,-2.9515037008259832,-3.2076912828709743,-3.4639118169503305,-3.7201584944992065,-3.9764262613514929,-4.2327112869792751,-4.4890106153875866,-4.7453219290568569,-5.0016433854182463],[-5.0147710809251143,-4.7591567162232264,-4.5036328385257169,-4.2482157758412535,-3.9929260262557533,-3.737789676182885,-3.4828404377451601,-3.2281226441061981,-2.9736957704469749,-2.719641466102106,-2.4660748797014547,-2.2131636540553936,-1.9611613513818404,-1.7104697518110685,-1.4617633655117155,-1.2162606385263,-0.97638116741844994,-0.7475579352365771,-0.54392829322042113,-0.40542021284209961,-0.40542021284209934,-0.54392829322042047,-0.74755793523657632,-0.97638116741844916,-1.2162606385262991,-1.4617633655117146,-1.7104697518110679,-1.9611613513818396,-2.2131636540553927,-2.4660748797014538,-2.7196414661021051,-2.973695770446974,-3.2281226441061968,-3.4828404377451583,-3.7377896761828842,-3.9929260262557533,-4.2482157758412535,-4.5036328385257152,-4.7591567162232264,-5.0147710809251143],[-5.0409239105993588,-4.7867063339985814,-4.5327357768368435,-4.279056222635548,-4.025722684130149,-3.7728048639902978,-3.5203923635246106,-3.2686022523030673,-3.0175903322922615,-2.7675683519131926,-2.5188311159472438,-2.2718006598294038,-2.0271010642104996,-1.7856908047671949,-1.5491084581531505,-1.3199525821778206,-1.1028622137234136,-0.90654715536736852,-0.74755793523657676,-0.653720450460613,-0.65372045046061289,-0.74755793523657632,-0.90654715536736796,-1.102862213723413,-1.31995258217782,-1.5491084581531496,-1.785690804767194,-2.0271010642104987,-2.2718006598294034,-2.518831115947243,-2.7675683519131917,-3.0175903322922606,-3.2686022523030664,-3.5203923635246088,-3.7728048639902969,-4.025722684130149,-4.2790562226355471,-4.5327357768368408,-4.7867063339985805,-5.0409239105993588],[-5.0799007067074227,-4.8277359958365977,-4.576043153224294,-4.3249045624187179,-4.0744227133514626,-3.8247266385067431,-3.5759809438413726,-3.3283987142941465,-3.0822603282490535,-2.8379414898946993,-2.5959559911944341,-2.3570226039551585,-2.1221724816983141,-1.8929260333632565,-1.6715903603083715,-1.4617633655117153,-1.269166017514316,-1.1028622137234134,-0.97638116741844949,-0.90654715536736818,-0.90654715536736807,-0.97638116741844916,-1.102862213723413,-1.2691660175143153,-1.4617633655117146,-1.6715903603083706,-1.8929260333632558,-2.1221724816983132,-2.3570226039551576,-2.5959559911944332,-2.8379414898946989,-3.0822603282490526,-3.3283987142941451,-3.5759809438413708,-3.8247266385067422,-4.0744227133514626,-4.324904562418717,-4.5760431532242922,-4.8277359958365968,-5.0799007067074227],[-5.1314092554332049,-4.8819058370922486,-4.6331566665622184,-4.3852900965351456,-4.1384647157869168,-3.8928785770997374,-3.648781915578899,-3.4064949373298519,-3.1664330859560175,-2.9291435022553491,-2.6953584668754664,-2.4660748797014547,-2.2426738057097308,-2.0271010642104996,-1.822137231224602,-1.6317848796612635,-1.4617633655117153,-1.3199525821778202,-1.2162606385262993,-1.1609468125817195,-1.1609468125817195,-1.2162606385262991,-1.31995258217782,-1.4617633655117146,-1.6317848796612628,-1.8221372312246011,-2.0271010642104987,-2.2426738057097304,-2.4660748797014538,-2.6953584668754655,-2.9291435022553483,-3.1664330859560166,-3.406494937329851,-3.6487819155788972,-3.8928785770997365,-4.1384647157869168,-4.3852900965351456,-4.6331566665622166,-4.8819058370922477,-5.1314092554332049],[-5.195076817783284,-4.9487843757996872,-4.7035734173959334,-4.4596223412630982,-4.2171497957432118,-3.9764262613514929,-3.737789676182885,-3.5016667394224776,-3.2686022523030669,-3.0392998951614607,-2.8146792820641218,-2.5959559911944341,-2.3847532356074708,-2.1832546622982565,-1.9944037418082108,-1.8221372312246018,-1.6715903603083713,-1.5491084581531498,-1.4617633655117148,-1.4160719252804175,-1.4160719252804175,-1.4617633655117146,-1.5491084581531496,-1.6715903603083706,-1.8221372312246011,-1.9944037418082101,-2.1832546622982556,-2.3847532356074703,-2.5959559911944337,-2.8146792820641209,-3.0392998951614603,-3.2686022523030664,-3.5016667394224767,-3.7377896761828833,-3.976426261351492,-4.2171497957432118,-4.4596223412630982,-4.7035734173959316,-4.9487843757996863,-5.195076817783284],[-5.2704627669472988,-5.0278645002891222,-4.7867063339985814,-4.547217397684153,-4.3096759779414384,-4.0744227133514626,-3.8418779650696657,-3.6125648214372745,-3.3871396958007449,-3.1664330859560175,-2.9515037008259841,-2.7437095588503455,-2.5447991334973339,-2.3570226039551581,-2.1832546622982565,-2.0271010642104992,-1.892926033363256,-1.7856908047671944,-1.7104697518110679,-1.6715903603083708,-1.6715903603083708,-1.7104697518110679,-1.785690804767194,-1.8929260333632558,-2.0271010642104987,-2.1832546622982556,-2.3570226039551576,-2.5447991334973334,-2.7437095588503451,-2.9515037008259832,-3.1664330859560166,-3.3871396958007445,-3.6125648214372736,-3.8418779650696639,-4.0744227133514617,-4.3096759779414384,-4.5472173976841521,-4.7867063339985796,-5.0278645002891214,-5.2704627669472988],[-5.3570724143015838,-5.1185807122249045,-4.8819058370922486,-4.6473253744594505,-4.4151731686468114,-4.185853260849874,-3.9598577465334617,-3.737789676182885,-3.5203923635246102,-3.3085866411702409,-3.1035175479256933,-2.9066112945524702,-2.7196414661021056,-2.5447991334973339,-2.3847532356074708,-2.2426738057097308,-2.1221724816983136,-2.0271010642104992,-1.9611613513818398,-1.9273456895349876,-1.9273456895349876,-1.9611613513818396,-2.0271010642104987,-2.1221724816983132,-2.2426738057097304,-2.3847532356074703,-2.5447991334973334,-2.7196414661021051,-2.9066112945524694,-3.1035175479256925,-3.30858664117024,-3.5203923635246097,-3.7377896761828837,-3.9598577465334599,-4.1858532608498731,-4.4151731686468114,-4.6473253744594496,-4.8819058370922468,-5.1185807122249036,-5.3570724143015838],[-5.4543711246622175,-5.220326428590341,-4.988481143165056,-4.7591567162232264,-4.5327357768368435,-4.3096759779414384,-4.0905272137291835,-3.8759529379053781,-3.6667563195064337,-3.4639118169503322,-3.2686022523030669,-3.082260328249053,-2.9066112945524698,-2.7437095588503455,-2.5959559911944341,-2.4660748797014542,-2.3570226039551581,-2.2718006598294034,-2.2131636540553927,-2.183254662298256,-2.183254662298256,-2.2131636540553927,-2.2718006598294034,-2.3570226039551576,-2.4660748797014538,-2.5959559911944337,-2.7437095588503451,-2.9066112945524694,-3.0822603282490526,-3.2686022523030664,-3.4639118169503313,-3.6667563195064328,-3.8759529379053772,-4.0905272137291826,-4.3096759779414375,-4.5327357768368435,-4.7591567162232264,-4.9884811431650542,-5.2203264285903401,-5.4543711246622175],[-5.561797939354836,-5.3324703443808765,-5.1057199363435579,-4.8819058370922486,-4.66145101607637,-4.4448553393230039,-4.232711286979276,-4.025722684130149,-3.8247266385067427,-3.6307185278221268,-3.4448791903960005,-3.2686022523030669,-3.1035175479256929,-2.9515037008259837,-2.8146792820641213,-2.695358466875466,-2.5959559911944337,-2.518831115947243,-2.4660748797014538,-2.4392689218513386,-2.4392689218513386,-2.4660748797014538,-2.518831115947243,-2.5959559911944332,-2.6953584668754655,-2.8146792820641209,-2.9515037008259832,-3.1035175479256925,-3.2686022523030664,-3.4448791903959997,-3.6307185278221259,-3.8247266385067422,-4.0257226841301481,-4.2327112869792742,-4.444855339323003,-4.66145101607637,-4.8819058370922477,-5.1057199363435561,-5.3324703443808756,-5.561797939354836],[-5.6787781000897688,-5.4543711246622166,-5.2329055466560384,-5.0147710809251143,-4.8004218530382188,-4.5903881512738858,-4.3852900965351456,-4.185853260849874,-3.9929260262557529,-3.8074980525429476,-3.6307185278221268,-3.4639118169503322,-3.3085866411702409,-3.1664330859560175,-3.0392998951614607,-2.9291435022553487,-2.8379414898946989,-2.7675683519131922,-2.7196414661021051,-2.695358466875466,-2.695358466875466,-2.7196414661021051,-2.7675683519131917,-2.8379414898946989,-2.9291435022553483,-3.0392998951614603,-3.1664330859560166,-3.30858664117024,-3.4639118169503313,-3.6307185278221259,-3.8074980525429472,-3.992926026255752,-4.1858532608498731,-4.3852900965351447,-4.5903881512738849,-4.8004218530382188,-5.0147710809251134,-5.2329055466560366,-5.4543711246622157,-5.6787781000897688],[-5.8047340629085999,-5.5853899771261446,-5.3693311772748515,-5.1569706054150677,-4.9487843757996881,-4.7453219290568578,-4.547217397684153,-4.3552019875546222,-4.1701169146898946,-3.9929260262557529,-3.8247266385067427,-3.6667563195064332,-3.5203923635246102,-3.3871396958007445,-3.2686022523030664,-3.1664330859560175,-3.0822603282490526,-3.017590332292261,-2.9736957704469744,-2.9515037008259837,-2.9515037008259832,-2.973695770446974,-3.0175903322922606,-3.0822603282490526,-3.1664330859560166,-3.2686022523030664,-3.3871396958007445,-3.5203923635246097,-3.6667563195064328,-3.8247266385067422,-3.992926026255752,-4.1701169146898946,-4.3552019875546213,-4.5472173976841521,-4.7453219290568569,-4.9487843757996881,-5.1569706054150668,-5.3693311772748507,-5.5853899771261437,-5.8047340629085999],[-5.9390947804617786,-5.7249009132733608,-5.5143110686170678,-5.3077542421754993,-5.1057199363435579,-4.9087665946350372,-4.7175306392241279,-4.5327357768368426,-4.3552019875546222,-4.1858532608498731,-4.0257226841301481,-3.8759529379053776,-3.7377896761828846,-3.6125648214372741,-3.5016667394224772,-3.406494937329851,-3.3283987142941456,-3.2686022523030664,-3.2281226441061972,-3.2076912828709747,-3.2076912828709743,-3.2281226441061968,-3.2686022523030664,-3.3283987142941451,-3.406494937329851,-3.5016667394224767,-3.6125648214372736,-3.7377896761828837,-3.8759529379053772,-4.0257226841301481,-4.1858532608498731,-4.3552019875546213,-4.5327357768368417,-4.7175306392241261,-4.9087665946350372,-5.1057199363435579,-5.3077542421754993,-5.514311068617066,-5.724900913273359,-5.9390947804617786],[-6.0813031926314975,-5.8722987131275826,-5.6671887449488052,-5.4664116936738045,-5.2704627669472979,-5.0799007067074218,-4.8953546389837896,-4.717530639224127,-4.5472173976841521,-4.3852900965351447,-4.2327112869792751,-4.0905272137291826,-3.9598577465334603,-3.8418779650696644,-3.7377896761828833,-3.6487819155788976,-3.5759809438413712,-3.5203923635246088,-3.4828404377451587,-3.4639118169503309,-3.4639118169503305,-3.4828404377451583,-3.5203923635246088,-3.5759809438413708,-3.6487819155788972,-3.7377896761828833,-3.8418779650696639,-3.9598577465334599,-4.0905272137291826,-4.2327112869792742,-4.3852900965351447,-4.5472173976841521,-4.7175306392241261,-4.8953546389837879,-5.0799007067074218,-5.2704627669472979,-5.4664116936738045,-5.6671887449488043,-5.8722987131275808,-6.0813031926314975],[-6.2308219898578798,-6.0270047556631576,-5.827342655058211,-5.6322775990996909,-5.4423039171259289,-5.2579735011307376,-5.0799007067074227,-4.9087665946350381,-4.7453219290568578,-4.5903881512738858,-4.4448553393230039,-4.3096759779414384,-4.1858532608498731,-4.0744227133514617,-3.9764262613514925,-3.8928785770997369,-3.8247266385067427,-3.7728048639902974,-3.7377896761828846,-3.720158494499207,-3.7201584944992065,-3.7377896761828842,-3.7728048639902969,-3.8247266385067422,-3.8928785770997365,-3.976426261351492,-4.0744227133514617,-4.1858532608498731,-4.3096759779414375,-4.444855339323003,-4.5903881512738849,-4.7453219290568569,-4.9087665946350372,-5.0799007067074218,-5.2579735011307367,-5.4423039171259289,-5.6322775990996901,-5.8273426550582093,-6.0270047556631567,-6.2308219898578798],[-6.3871377985031543,-6.1884709672549594,-5.9941896038774152,-5.8047340629086008,-5.6205923632776855,-5.4423039171259298,-5.2704627669472988,-5.1057199363435588,-4.9487843757996881,-4.8004218530382197,-4.66145101607637,-4.5327357768368435,-4.4151731686468114,-4.3096759779414393,-4.2171497957432127,-4.1384647157869168,-4.0744227133514626,-4.025722684130149,-3.9929260262557533,-3.9764262613514934,-3.9764262613514929,-3.9929260262557533,-4.025722684130149,-4.0744227133514626,-4.1384647157869168,-4.2171497957432118,-4.3096759779414384,-4.4151731686468114,-4.5327357768368435,-4.66145101607637,-4.8004218530382188,-4.9487843757996881,-5.1057199363435579,-5.2704627669472979,-5.4423039171259289,-5.6205923632776855,-5.8047340629085999,-5.9941896038774143,-6.1884709672549585,-6.3871377985031543],[-6.549763986894769,-6.3561821826874558,-6.1671863952849701,-5.9832112254246326,-5.8047340629085999,-5.6322775990996909,-5.4664116936738054,-5.3077542421754993,-5.1569706054150677,-5.0147710809251134,-4.8819058370922477,-4.7591567162232264,-4.6473253744594505,-4.547217397684153,-4.4596223412630982,-4.3852900965351456,-4.324904562418717,-4.2790562226355471,-4.2482157758412535,-4.2327112869792751,-4.2327112869792751,-4.2482157758412535,-4.2790562226355471,-4.324904562418717,-4.3852900965351456,-4.4596223412630982,-4.5472173976841521,-4.6473253744594496,-4.7591567162232264,-4.8819058370922477,-5.0147710809251134,-5.1569706054150668,-5.3077542421754993,-5.4664116936738045,-5.6322775990996901,-5.8047340629085999,-5.9832112254246317,-6.1671863952849684,-6.3561821826874558,-6.549763986894769],[-6.7182423110635376,-6.5296572196137648,-6.3458300875715787,-6.1671863952849701,-5.9941896038774143,-5.8273426550582093,-5.6671887449488043,-5.5143110686170669,-5.3693311772748507,-5.2329055466560375,-5.105719936343557,-4.9884811431650551,-4.8819058370922477,-4.7867063339985805,-4.7035734173959316,-4.6331566665622166,-4.5760431532242922,-4.5327357768368408,-4.5036328385257152,-4.4890106153875866,-4.4890106153875866,-4.5036328385257152,-4.5327357768368408,-4.5760431532242922,-4.6331566665622166,-4.7035734173959316,-4.7867063339985796,-4.8819058370922468,-4.9884811431650542,-5.1057199363435561,-5.2329055466560366,-5.3693311772748507,-5.514311068617066,-5.6671887449488043,-5.8273426550582093,-5.9941896038774143,-6.1671863952849684,-6.3458300875715778,-6.5296572196137639,-6.7182423110635376],[-6.8921436183156981,-6.7084489497185267,-6.5296572196137657,-6.3561821826874558,-6.1884709672549585,-6.0270047556631576,-5.8722987131275826,-5.7249009132733608,-5.5853899771261437,-5.4543711246622166,-5.3324703443808765,-5.220326428590341,-5.1185807122249045,-5.0278645002891214,-4.9487843757996872,-4.8819058370922477,-4.8277359958365968,-4.7867063339985805,-4.7591567162232264,-4.7453219290568569,-4.7453219290568569,-4.7591567162232264,-4.7867063339985805,-4.8277359958365968,-4.8819058370922477,-4.9487843757996863,-5.0278645002891214,-5.1185807122249036,-5.2203264285903401,-5.3324703443808756,-5.4543711246622157,-5.5853899771261437,-5.724900913273359,-5.8722987131275808,-6.0270047556631567,-6.1884709672549585,-6.3561821826874558,-6.5296572196137639,-6.7084489497185267,-6.8921436183156981],[-7.0710678118654755,-6.8921436183156981,-6.7182423110635394,-6.549763986894769,-6.3871377985031543,-6.2308219898578807,-6.0813031926314984,-5.9390947804617795,-5.8047340629086008,-5.6787781000897697,-5.5617979393548369,-5.4543711246622175,-5.3570724143015847,-5.2704627669472988,-5.195076817783284,-5.1314092554332049,-5.0799007067074227,-5.0409239105993588,-5.0147710809251143,-5.0016433854182463,-5.0016433854182463,-5.0147710809251143,-5.0409239105993588,-5.0799007067074227,-5.1314092554332049,-5.195076817783284,-5.2704627669472988,-5.3570724143015838,-5.4543711246622175,-5.561797939354836,-5.6787781000897688,-5.8047340629085999,-5.9390947804617786,-6.0813031926314975,-6.2308219898578798,-6.3871377985031543,-6.549763986894769,-6.7182423110635376,-6.8921436183156981,-7.0710678118654755]],"type":"surface","name":"K- (Subespacio Negativo)","opacity":0.80000000000000004,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":{"render":[{"code":"\n  function(el, x) {\n    let angle = 0;\n    setInterval(function() {\n      angle += 0.005; \n      Plotly.relayout(el, {\n        'scene.camera.eye': {\n          x: 2.5 * Math.cos(angle), // Radio de giro alejado\n          y: 2.5 * Math.sin(angle), // Radio de giro alejado\n          z: 0.8 // Altura de cámara alejada\n        }\n      });\n    }, 30); \n  }\n","data":null}]}}</script>
+<p>Representación del Cono Isotrópico (Métrica Indefinida)</p>
+</div>
+</div>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 7] - (Interactuar con el gráfico rotándolo si es posible). - Indicar que, en este análogo tridimensional de Minkowski, la superficie del cono representa a todos los vectores cuya “norma” es cero, a pesar de no ser el vector origen. Esto es el cono isotrópico. - El manto superior azul representa la región de K+ (energía positiva) y el manto inferior rojo representa la región de K- (energía negativa). - Concluir la introducción afirmando que la teoría de marcos requiere sumar infinitos aportes (convergencia); sin la simetría J, las proyecciones oscilarían caóticamente entre el cono superior e inferior sin converger.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="teoría-de-marcos-antecedentes-clásicos" class="slide level2 center">
+<h2>2. Teoría de Marcos: Antecedentes Clásicos</h2>
+<p>La teoría de marcos (frames) fue introducida por Duffin y Schaeffer en 1952 para el estudio de series de Fourier no armónicas, y posteriormente expandida por Daubechies en el análisis de wavelets[cite: 52].</p>
+<p>A diferencia de una base ortonormal, un marco permite redundancia (sobrecompletitud), garantizando una reconstrucción numéricamente estable de las señales, incluso en presencia de ruido o pérdida de coeficientes.</p>
+
+<img data-src="index_files/figure-revealjs/mercedes-benz-frame-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Representación conceptual de sobrecompletitud (Marco de Mercedes-Benz en R²)</p><aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 8] - Iniciar la sección dos dando crédito a los orígenes clásicos (Duffin, Schaeffer, Daubechies) para situar la teoría de marcos en el análisis funcional. - Usar el gráfico para explicar la “sobrecompletitud”: En R2 solo necesitamos 2 vectores para una base. Aquí tenemos 3 (Marco de Mercedes-Benz). Esta redundancia es lo que da robustez a la representación. - Enlazar con el siguiente slide: La pregunta central de la investigación es, ¿cómo se traslada esta robustez redundante a un espacio donde la métrica es indefinida?
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="marcos-en-espacios-de-krein" class="slide level2 center">
+<h2>Marcos en Espacios de Krein</h2>
+<p>En esta sección se establece una definición formal de marcos en espacios de Krein, extendiendo las condiciones geométricas del espacio de Hilbert asociado[cite: 57].</p>
+<div class="theorem-box">
+<p><strong>Definición 3.1 (Marco en <span class="math inline">\(\mathcal{K}\)</span>):</strong> Sea <span class="math inline">\((\mathcal{K}=\mathcal{K}^{+}[+]\mathcal{K}^{-},[\cdot,\cdot])\)</span> un espacio de Krein con simetría fundamental <span class="math inline">\(\mathcal{J}\)</span>[cite: 59]. Una sucesión <span class="math inline">\(\{x_{n}\}_{n\in\mathbb{N}}\subset\mathcal{K}\)</span> se llama un marco de <span class="math inline">\(\mathcal{K}\)</span> si existen constantes <span class="math inline">\(\alpha, \beta &gt; 0\)</span> tales que para todo <span class="math inline">\(x\in\mathcal{K}\)</span>[cite: 59]:</p>
+<p><span class="math display">\[ \alpha||x||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}|[x,x_{n}]|^{2}\le\beta||x||_{\mathcal{J}}^{2} \]</span></p>
+</div>
+<ul>
+<li>Las constantes <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> se denominan cotas inferior y superior del marco, respectivamente.</li>
+<li>Si <span class="math inline">\(\alpha = \beta\)</span>, el marco se denomina <em>ajustado</em>.</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 9] - Leer detalladamente la definición. Es fundamental hacer notar que, aunque los elementos se evalúan bajo el producto indefinido (en el centro de la desigualdad), las cotas se establecen estrictamente respecto a la norma inducida por J. - Explicar que usar la norma de J en los extremos garantiza que la “energía” medida sea definida positiva, evitando que las cotas colapsen por vectores del cono isotrópico.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reescritura-bajo-la-métrica-indefinida" class="slide level2 center">
+<h2>Reescritura bajo la Métrica Indefinida</h2>
+<p>A diferencia del módulo al cuadrado clásico en espacios de Hilbert, en un espacio con producto interno indefinido la magnitud compleja requiere un tratamiento algebraico específico.</p>
+<p>Nótese que por las propiedades de la forma sesquilineal hermítica, se cumple que[cite: 60]: <span class="math display">\[ |[x,x_{n}]|^{2}=[x,x_{n}][x_{n},x] \]</span></p>
+<p>Por consiguiente, la condición de estabilidad que define al marco se reescribe de manera rigurosa como[cite: 60]:</p>
+<p><span class="math display">\[ \alpha||x||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[x,x_{n}][x_{n},x]\le\beta||x||_{\mathcal{J}}^{2}, \quad \forall x\in\mathcal{K} \]</span></p>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 10] - Hacer énfasis en este paso algebraico. En un espacio de Hilbert, el producto de [x, x_n] por su conjugado [x_n, x] es trivialmente el módulo al cuadrado. - En un espacio de Krein, dejar explícito el producto <span class="math inline">\([x,x_{n}][x_{n},x]\)</span> es lo que motiva de forma natural la transición hacia la teoría de Bimarcos (que veremos en la siguiente sección), donde se separan estas dos posiciones del producto para usar dos sucesiones distintas (X e Y).
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="correspondencia-topológica-fundamental" class="slide level2 center">
+<h2>Correspondencia Topológica Fundamental</h2>
+<p>El andamiaje topológico permite vincular directamente las estructuras de la métrica indefinida con el espacio de Hilbert estándar.</p>
+<ul>
+<li>Existe una correspondencia uno a uno entre los marcos en el espacio de Krein y los marcos en el espacio de Hilbert asociado[cite: 57].</li>
+<li>Toda sucesión <span class="math inline">\(\{x_n\}_{n \in \mathbb{N}}\)</span> que sea un marco en <span class="math inline">\((\mathcal{K}, [\cdot, \cdot])\)</span> es también un marco en <span class="math inline">\((\mathcal{K}, [\cdot, \cdot]_{\mathcal{J}})\)</span>, y viceversa, compartiendo las mismas cotas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span>.</li>
+</ul>
+<p>Este isomorfismo garantiza que los operadores pre-marco y marco hereden las propiedades de acotación y convergencia incondicional requeridas para la reconstrucción exacta[cite: 57].</p>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 11] - Explicar la importancia teórica de esta correspondencia: Demuestra que trabajar en el espacio de Krein con la simetría J no “rompe” la convergencia. - Todo el herramental del análisis funcional que se ha desarrollado en el último siglo para espacios de Hilbert puede ser importado y aplicado a los espacios de Krein. - Concluir la sección mencionando que, aunque la teoría de marcos se sostiene, existen situaciones donde una sola sucesión <span class="math inline">\(\{x_n\}\)</span> no logra cumplir ambas cotas simultáneamente bajo métricas complejas, abriendo la puerta a los Bimarcos.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bimarcos-en-espacios-con-métrica-indefinida" class="slide level2 center">
+<h2>3. Bimarcos en Espacios con Métrica Indefinida</h2>
+<p>La restricción de emplear una única sucesión <span class="math inline">\(\{x_n\}_{n\in\mathbb{N}}\)</span> limita la flexibilidad geométrica requerida en ciertos problemas de reconstrucción. La generalización natural consiste en desacoplar el producto <span class="math inline">\([k,x_{n}][x_{n},k]\)</span> utilizando dos sucesiones distintas[cite: 60].</p>
+<div class="theorem-box">
+<p><strong>Definición 3.2 (Bi-<span class="math inline">\(\mathcal{J}\)</span>-marco):</strong> Sean <span class="math inline">\((\mathcal{K}=\mathcal{K}^{+}[+]\mathcal{K}^{-},[\cdot,\cdot],\mathcal{J})\)</span> un espacio de Krein y <span class="math inline">\((\mathcal{X},\mathcal{Y})=(\{x_{n}\}_{n\in\mathbb{N}},\{y_{n}\}_{n\in\mathbb{N}})\subset\mathcal{K}\times\mathcal{K}\)</span>[cite: 60]. Si existen constantes <span class="math inline">\(\alpha, \beta &gt; 0\)</span> tales que para todo <span class="math inline">\(k\in\mathcal{K}\)</span>[cite: 60]:</p>
+<p><span class="math display">\[ \alpha||k||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][y_{n},k]\le\beta||k||_{\mathcal{J}}^{2} \]</span></p>
+<p>entonces se dice que <span class="math inline">\((\mathcal{X}, \mathcal{Y})\)</span> es un <span class="math inline">\(\mathcal{J}\)</span>-bimarco para <span class="math inline">\(\mathcal{K}\)</span>[cite: 60].</p>
+</div>
+<ul>
+<li>Además, si se cumple utilizando el <span class="math inline">\(\mathcal{J}\)</span>-producto interno directamente, se dice que es un bimarco para el espacio de Hilbert asociado <span class="math inline">\((\mathcal{K},[\cdot,\cdot]_{\mathcal{J}})\)</span>[cite: 60].</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 12] - Esta diapositiva marca la entrada al aporte principal de la investigación. - Explicar la motivación algebraica: Al separar la sucesión original en dos distintas (X e Y), se obtienen grados de libertad adicionales. Un vector de la sucesión X analiza la señal, y el correspondiente de Y la sintetiza. - Destacar que la desigualdad mantiene la métrica indefinida en el centro (los productos cruzados), pero sigue siendo acotada por la métrica de Hilbert en los extremos para garantizar estabilidad.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="justificación-geométrica-el-caso-mathbbc2" class="slide level2 center">
+<h2>Justificación Geométrica: El Caso <span class="math inline">\(\mathbb{C}^2\)</span></h2>
+<p>¿Existen sucesiones que formen un bimarco sin ser marcos individualmente? Se demuestra afirmativamente mediante un contraejemplo en <span class="math inline">\(\mathcal{K} = \mathbb{C}^2\)</span> con el producto interno <span class="math inline">\([(a,b),(c,d)] = a\bar{c} - b\bar{d}\)</span>[cite: 60].</p>
+<p>Se definen las sucesiones <span class="math inline">\(\mathcal{X}\)</span> y <span class="math inline">\(\mathcal{Y}\)</span> para <span class="math inline">\(k\in\mathbb{N}\)</span> como[cite: 61]: <span class="math display">\[x_{4k-3}=e_{1}, \quad x_{4k-2}=\frac{1}{k^{2}}e_{1}, \quad x_{4k-1}=e_{2}, \quad x_{4k}=\frac{1}{k^{2}}e_{2}\]</span> <span class="math display">\[y_{4k-3}=\frac{1}{k^{2}}e_{1}, \quad y_{4k-2}=e_{1}, \quad y_{4k-1}=\frac{1}{k^{2}}e_{2}, \quad y_{4k}=e_{2}\]</span></p>
+<p>Para <span class="math inline">\(z_0 = e_1\)</span>, la sucesión <span class="math inline">\(\mathcal{X}\)</span> diverge[cite: 61]: <span class="math display">\[ \sum_{n\in\mathbb{N}}|[z_{0},x_{n}]|^{2} = \sum_{k\in\mathbb{N}}\left(1+\frac{1}{k^{4}}\right) = +\infty \]</span> Por lo tanto, <span class="math inline">\(\mathcal{X}\)</span> (y de forma análoga <span class="math inline">\(\mathcal{Y}\)</span>) <strong>no</strong> admiten una cota superior <span class="math inline">\(\beta\)</span>, por ende, no son <span class="math inline">\(\mathcal{J}\)</span>-marcos[cite: 61, 62].</p>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 13] - Este es un hito de la presentación. Se presenta el problema: Si analizamos la sucesión X sola, la sumatoria contiene un término “1” infinito número de veces, por lo que la serie diverge hacia el infinito. - Al no tener cota superior, falla estrepitosamente como marco (la energía explota). - Pedir a la audiencia que memoricen la asimetría intencional entre X e Y: donde X tiene coeficientes 1, Y tiene 1/k^2, y viceversa. Esto se resolverá en la siguiente diapositiva.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="estabilización-conjunta-en-mathbbc2" class="slide level2 center">
+<h2>Estabilización Conjunta en <span class="math inline">\(\mathbb{C}^2\)</span></h2>
+<p>Al operar el par <span class="math inline">\((\mathcal{X}, \mathcal{Y})\)</span> bajo el producto cruzado del bimarco, los coeficientes se compensan mutuamente. Para cualquier <span class="math inline">\(z \in \mathbb{C}^2\)</span>, se obtiene[cite: 62]:</p>
+<p><span class="math display">\[ \sum_{n\in\mathbb{N}}[z,x_{n}][y_{n},z] = (|z_1|^2 + |z_2|^2) \sum_{k\in\mathbb{N}}\frac{2}{k^{2}} = \frac{\pi^2}{3}(|z_1|^2 + |z_2|^2) \]</span></p>
+<p>Dado que <span class="math inline">\(||z||_{\mathcal{J}}^{2} = |z_1|^2 + |z_2|^2\)</span>, se concluye geométricamente que[cite: 62]: <span class="math display">\[ 3||z||_{\mathcal{J}}^{2} \le \sum_{n\in\mathbb{N}}[x_{n},z][z,y_{n}] \le 4||z||_{\mathcal{J}}^{2} \]</span></p>
+<p>El par <span class="math inline">\((\mathcal{X}, \mathcal{Y})\)</span> constituye un <span class="math inline">\(\mathcal{J}\)</span>-bimarco con cotas <span class="math inline">\(\alpha=3\)</span> y <span class="math inline">\(\beta=4\)</span>, a pesar de la divergencia individual[cite: 62].</p>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 14] - Mostrar la elegancia del resultado: Al multiplicar los términos, los “1” infinitos de X se cancelan con los “1/k^2” de Y, resultando en la famosa serie de Basilea que converge a (pi^2)/6. - Como resultado, la energía del sistema conjunto está estrictamente atrapada entre 3 y 4. - Conclusión para la audiencia: Los bimarcos permiten reconstruir señales con sistemas de sensores (sucesiones) que de forma individual serían inestables o defectuosos.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="suma-de-marcos-mediante-bimarcos" class="slide level2 center">
+<h2>Suma de Marcos mediante Bimarcos</h2>
+<p>En espacios de Hilbert, la suma de dos marcos no necesariamente constituye un nuevo marco. La teoría de bimarcos proporciona las condiciones suficientes para garantizar la estabilidad de estas sumas en espacios de Krein[cite: 62].</p>
+<div class="theorem-box">
+<p><strong>Proposición 3.4:</strong> Si <span class="math inline">\(\mathcal{X}=\{x_{n}\}_{n\in\mathbb{N}}\)</span> y <span class="math inline">\(\mathcal{Z}=\{z_{n}\}_{n\in\mathbb{N}}\)</span> son <span class="math inline">\(\mathcal{J}\)</span>-marcos para <span class="math inline">\(\mathcal{K}\)</span>, y el par <span class="math inline">\((\mathcal{X},\mathcal{Z})\)</span> conforma un <span class="math inline">\(\mathcal{J}\)</span>-bimarco, entonces la sucesión suma <span class="math inline">\(\mathcal{X}+\mathcal{Z}\)</span> es también un <span class="math inline">\(\mathcal{J}\)</span>-marco para el espacio <span class="math inline">\(\mathcal{K}\)</span>[cite: 62].</p>
+</div>
+<ul>
+<li><em>Esquema de demostración:</em> Se fundamenta en la expansión del cuadrado de la norma, donde los términos cruzados <span class="math inline">\([x_n, z][z, z_n]\)</span> quedan acotados precisamente por las constantes del <span class="math inline">\(\mathcal{J}\)</span>-bimarco <span class="math inline">\(e\)</span> y <span class="math inline">\(f\)</span>[cite: 63].</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 15] - Explicar la utilidad de este teorema: Sirve para diseñar nuevos sistemas de reconstrucción combinando sistemas previos. - Si simplemente sumamos dos marcos, la interacción entre ellos podría anular componentes vitales y perder la cota inferior. - Sin embargo, si ambos marcos forman un bimarco entre sí, su interacción está acotada. Esto garantiza que la estructura resultante (X+Z) sea matemáticamente robusta.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="equivalencia-estructural-bajo-mathcalj" class="slide level2 center">
+<h2>Equivalencia Estructural bajo <span class="math inline">\(\mathcal{J}\)</span></h2>
+<p>La simetría fundamental transfiere intacta la topología de los bimarcos al espacio de Hilbert asociado, facilitando su manipulación.</p>
+<div class="theorem-box">
+<p><strong>Proposición 3.7:</strong> Sean <span class="math inline">\(\mathcal{X}\)</span> y <span class="math inline">\(\mathcal{Y}\)</span> sucesiones en un espacio de Krein <span class="math inline">\(\mathcal{K}\)</span>. Las siguientes condiciones son equivalentes[cite: 65]: 1. <span class="math inline">\((\mathcal{X},\mathcal{Y})\)</span> es un <span class="math inline">\(\mathcal{J}\)</span>-bimarco para el espacio de Krein <span class="math inline">\((\mathcal{K}, [\cdot,\cdot])\)</span>[cite: 65]. 2. <span class="math inline">\((\mathcal{J}\mathcal{X}, \mathcal{J}\mathcal{Y})\)</span> es un bimarco para el espacio de Hilbert <span class="math inline">\((\mathcal{K}, [\cdot,\cdot]_{\mathcal{J}})\)</span>[cite: 65].</p>
+</div>
+<ul>
+<li>La demostración exige el uso riguroso de la involución <span class="math inline">\(\mathcal{J}(\mathcal{J}(x)) = x\)</span> y la conservación isométrica <span class="math inline">\(||x||_{\mathcal{J}} = ||\mathcal{J}(x)||_{\mathcal{J}}\)</span>[cite: 65, 66].</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 16] - Mencionar que este teorema es la “llave maestra” de la teoría. - Transforma un problema en métrica indefinida (muy difícil de tratar algebraicamente) en un problema de bimarcos en espacios de Hilbert (cuya teoría es mucho más madura). - Basta con aplicar el operador J a cada elemento de las sucesiones X e Y para realizar el salto topológico.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="el-operador-mathcalj-bimarco" class="slide level2 center">
+<h2>El Operador <span class="math inline">\(\mathcal{J}\)</span>-Bimarco</h2>
+<p>Para abordar el problema de reconstrucción algorítmica de señales, se introduce el operador núcleo de la teoría. Se define primeramente la forma sesquilineal <span class="math inline">\(\psi\)</span> asociada al bimarco[cite: 67]:</p>
+<p><span class="math display">\[ \psi(x,y)=\sum_{n\in\mathbb{N}}[x,x_{n}]_{\mathcal{J}}[y_{n},y]_{\mathcal{J}} \]</span></p>
+<p>Mediante el Teorema de Representación de Riesz, se garantiza la existencia de un único operador acotado <span class="math inline">\(T\)</span> tal que <span class="math inline">\([T(x),y]_{\mathcal{J}}=\psi(x,y)\)</span>[cite: 72, 73]. A partir de este, se establece el operador fundamental:</p>
+<div class="theorem-box">
+<p><strong>Definición (Operador <span class="math inline">\(\mathcal{J}\)</span>-bimarco):</strong> Se define el operador <span class="math inline">\(\mathcal{M}:\mathcal{K}\rightarrow\mathcal{K}\)</span> como <span class="math inline">\(\mathcal{M}=\mathcal{J}T\mathcal{J}\)</span>, cuya forma explícita está dada por[cite: 73]: <span class="math display">\[ \mathcal{M}(x) = \sum_{n\in\mathbb{N}}[x,x_{n}]\mathcal{J}(y_{n}) \]</span></p>
+</div>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 17] - Explicar el camino deductivo: Primero se demuestra que la sumatoria es una forma sesquilineal acotada (para lo que se usó la identidad de polarización vista al inicio). - Al ser acotada, Riesz nos regala la existencia del operador T. - Finalmente, se define el operador M conjugando T con la simetría J. La ecuación final de M(x) es el algoritmo exacto mediante el cual una señal x es descompuesta en coeficientes [x,x_n] y reconstruida usando J(y_n).
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="visualización-del-condicionamiento-del-operador" class="slide level2 center">
+<h2>Visualización del Condicionamiento del Operador</h2>
+<p>El condicionamiento del operador (relación entre sus cotas <span class="math inline">\(\lambda\)</span> y <span class="math inline">\(\beta\)</span>) determina la estabilidad numérica de la reconstrucción de la señal en el espacio de Krein.</p>
+
+<img data-src="index_files/figure-revealjs/operator-bounds-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Condicionamiento Espectral del Operador J-bimarco</p><aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 18] - Explicar la gráfica: Esta simulación muestra cómo se comportan las proyecciones del operador para distintos vectores. - Lo crucial es observar que ningún punto cae por debajo de la línea punteada inferior (lambda) ni supera la superior (beta). - Si cayera a cero o debajo (debido a la métrica indefinida), perderíamos la información de la señal (el operador no sería invertible). Mantenerse estrictamente positivo es lo que asegura que M se pueda invertir.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="invertibilidad-y-reconstrucción" class="slide level2 center">
+<h2>Invertibilidad y Reconstrucción</h2>
+<p>El objetivo final de todo marco es reconstruir un elemento arbitrario del espacio. Para ello, el operador marco asociado debe ser invertible.</p>
+<div class="theorem-box">
+<p><strong>Teorema de Invertibilidad:</strong> Si <span class="math inline">\((\mathcal{X}, \mathcal{Y})\)</span> es un <span class="math inline">\(\mathcal{J}\)</span>-bimarco con cotas <span class="math inline">\(\lambda, \beta &gt; 0\)</span>, entonces su operador asociado satisface[cite: 74, 75]: <span class="math display">\[ \lambda I \le \mathcal{M}\mathcal{J} \le \beta I \]</span> y por consiguiente, <span class="math inline">\(\mathcal{M}\)</span> es un operador continuo e invertible sobre <span class="math inline">\(\mathcal{K}\)</span>[cite: 76].</p>
+</div>
+<ul>
+<li><em>Demostración (Esquema):</em> La relación de acotamiento implica que <span class="math inline">\([(I - \beta^{-1}\mathcal{M}\mathcal{J})(k), k]_{\mathcal{J}} \ge 0\)</span>[cite: 76].</li>
+<li>Mediante el cálculo del supremo en la esfera unitaria, la norma satisface <span class="math inline">\(||I - \beta^{-1}\mathcal{M}\mathcal{J}||_{\mathcal{J}} \le 1 - \frac{\lambda}{\beta} &lt; 1\)</span>[cite: 77].</li>
+<li>Por el Teorema de Neumann, la serie converge, garantizando la existencia del operador inverso[cite: 77].</li>
+</ul>
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 19] - Este es el clímax matemático de la sección. - Explicar que la desigualdad asegura que el operador compuesto MJ se comporta como un operador positivo fuertemente acotado. - Mencionar que el uso de la Serie de Neumann (I - T)^(-1) es el argumento definitivo: Al probar que la norma del operador modificado es estrictamente menor a 1, la convergencia es absoluta y el operador se puede invertir. - Con esto cerramos la parte dura teórica: Hemos demostrado que los bimarcos en espacios de métrica indefinida permiten algoritmos de reconstrucción de señales perfectamente válidos y estables.
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo-mods.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
