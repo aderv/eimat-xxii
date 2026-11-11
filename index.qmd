@@ -51,9 +51,9 @@ El análisis funcional clásico se cimenta en la geometría de los espacios de H
 *   **Espacio con producto interno indefinido:** Un espacio vectorial complejo $\mathcal{K}$ equipado con una forma sesquilineal hermítica $[\cdot, \cdot]$ que no necesariamente satisface $[x,x] > 0$ para $x \neq 0$.
 *   Los vectores se clasifican geométricamente en función de su norma:
     *   **Positivos:** $[x,x] > 0$
-    *   **No negativos:** $[x,x] \ge 0$
+    <!-- *   **No negativos:** $[x,x] \ge 0$ -->
     *   **Negativos:** $[x,x] < 0$
-    *   **No Positivos:** $[x,x] \le 0$
+    <!-- *   **No Positivos:** $[x,x] \le 0$ -->
     *   **Neutros (Isotrópicos):** $[x,x] = 0$ con $x \neq 0$
 
 <aside class="notes">
