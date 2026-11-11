@@ -42,7 +42,7 @@ library(knitr)
 # se puede integrar la librería htmlwidgets o reactable.
 ```
 
-# 1. Espacios de Hilbert y Espacios con Métrica Indefinida
+# 1. Espacios con Métrica Indefinida
 
 ## Producto interno indefinido
 
@@ -284,7 +284,7 @@ En esta sección se establece una definición de marcos en espacios de Krein, ex
 **Definición (Marco en $\mathcal{K}$):**
 Sea $(\mathcal{K}=\mathcal{K}^{+}[+]\mathcal{K}^{-},[\cdot,\cdot])$ un espacio de Krein con simetría fundamental $\mathcal{J}$. Una sucesión $\{x_{n}\}_{n\in\mathbb{N}}\subset\mathcal{K}$ se llama un marco de $\mathcal{K}$ si existen constantes $\alpha, \beta > 0$ tales que para todo $k\in\mathcal{K}$:
 
-$$ \alpha||k||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}|[k,x_{n}]|^{2}\le\beta||k||_{\mathcal{J}}^{2} $$
+$$ \alpha\|k\|_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}|[k,x_{n}]|^{2}\le\beta\|k\|_{\mathcal{J}}^{2} $$
 </div>
 
 *   Las constantes $\alpha$ y $\beta$ se denominan cotas inferior y superior del marco, respectivamente.
@@ -304,7 +304,7 @@ $$ |[k,x_{n}]|^{2}=[k,x_{n}] \overline{[x_{n},k]} $$
 
 Por consiguiente, la condición de estabilidad que define al marco se puede reescribir como:
 
-$$ \alpha||k||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][x_{n},k]\le\beta||k||_{\mathcal{J}}^{2}, \quad \forall k\in\mathcal{K} $$
+$$ \alpha\|k\|_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][x_{n},k]\le\beta\|k\|_{\mathcal{J}}^{2}, \quad \forall k\in\mathcal{K} $$
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 10]
@@ -345,7 +345,7 @@ entonces se dice que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco pa
 </div>
 
 + Además, si se cumple utilizando el $\mathcal{J}$-producto interno directamente, se dice que es un bimarco para el espacio de Hilbert asociado $(\mathcal{K},[\cdot,\cdot]_{\mathcal{J}})$.
-+ Si $\alpha = \beta$, entonces $(\mathcal{X},\mathcal{Y})$ es un bimarco ajustado
++ Si $\alpha = \beta$, entonces $(\mathcal{X},\mathcal{Y})$ es un $\mathcal{J}$-bimarco ajustado
 
 
 <aside class="notes">
@@ -452,11 +452,15 @@ Se definen $\mathcal{X}$ y $\mathcal{Y}$ como:
 $$ x_1 = (i,0), \quad x_2 = (0, 3i), \quad x_n = (0,0) \text{ para } n \ge 3 $$
 $$ y_1 = (5i,0), \quad y_2 = (0, -i), \quad y_n = (0,0) \text{ para } n \ge 3 $$
 
-Se puede verificar que las sucesiones así definidas, son $\mathcal{J}$-marcos:
-$$ \sum_{n\in\mathbb{N}}|[z, x_n]|^2 = |i\bar{z}_1|^2 + |-3i\bar{z}_2|^2 = |z_1|^2 + 9|z_2|^2 \implies ||z||_{\mathcal{J}}^2 \le \sum |[z, x_n]|^2 \le 9||z||_{\mathcal{J}}^2 $$
-$$ \sum_{n\in\mathbb{N}}|[z, y_n]|^2 = |-5iz_1|^2 + |-iz_2|^2 = 25|z_1|^2 + |z_2|^2 \implies ||z||_{\mathcal{J}}^2 \le \sum |[z, y_n]|^2 \le 25||z||_{\mathcal{J}}^2 $$
+Se puede verificar que:
 
-Ambos son $\mathcal{J}$-marcos, con cotas $[1, 9]$ y $[1, 25]$ respectivamente.
+$$ \sum_{n\in\mathbb{N}}|[z, x_n]|^2 = |i\bar{z}_1|^2 + |-3i\bar{z}_2|^2 = |z_1|^2 + 9|z_2|^2 \\
+\implies ||z||_{\mathcal{J}}^2 \le \sum |[z, x_n]|^2 \le 9||z||_{\mathcal{J}}^2 $$
+$$ \sum_{n\in\mathbb{N}}|[z, y_n]|^2 = |-5iz_1|^2 + |-iz_2|^2 = 25|z_1|^2 + |z_2|^2 \\
+\implies ||z||_{\mathcal{J}}^2 \le \sum |[z, y_n]|^2 \le 25||z||_{\mathcal{J}}^2 $$
+
+Por lo tanto, ambos son $\mathcal{J}$-marcos, con cotas $[1, 9]$ y $[1, 25]$ respectivamente.
+
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 15]
