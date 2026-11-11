@@ -903,6 +903,50 @@ La prueba surge de la identidad del espacio $k = \mathcal{M}^{-1}(\mathcal{M}(k)
 
 ## Conclusiones
 
+La transición de la teoría de marcos hacia los $\mathcal{J}$-bimarcos resuelve limitaciones estructurales fundamentales en espacios con métrica indefinida:
+
+*   **Desacoplamiento Analítico:** Separar las sucesiones de análisis y síntesis mitiga la volatilidad espectral inherente a las secuencias únicas evaluadas cerca del cono isotrópico.
+*   **Estabilización de Divergencias:** Se demostró constructivamente que sucesiones que divergen individualmente y fallan como $\mathcal{J}$-marcos pueden acoplarse para formar un $\mathcal{J}$-bimarco estrictamente estable.
+*   **Mejora del Condicionamiento:** La interacción cruzada actúa como un filtro estabilizador, estrechando las cotas espectrales (de $[1, 25]$ a $[3, 5]$) y optimizando el número de condición del sistema.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 1 DE CONCLUSIONES]
+- Recapitular el valor de los ejemplos mostrados: No fueron meros ejercicios algebraicos, sino la prueba de que el bimarco resuelve la crisis de la redundancia.
+- Explicar que en la teoría clásica de Krein, usar una sola sucesión es peligroso porque la métrica indefinida destruye la estabilidad si nos acercamos a los vectores neutros.
+- Al usar J-bimarcos, distribuimos esa carga geométrica. Una sucesión analiza, la otra sintetiza, y en el proceso, compensan mutuamente sus divergencias.
+</aside>
+
+
+## Conclusiones
+
+La formulación del operador $\mathcal{J}$-bimarco $\mathcal{M}$ provee el andamiaje algorítmico  para la reconstrucción de señales en el espacio $\mathcal{K}$:
+
+*   **Preservación de la Positividad:** A pesar de operar bajo la geometría de Krein, el operador $\mathcal{M}$ mantiene un espectro estrictamente positivo, garantizando su invertibilidad mediante la convergencia de la Serie de Neumann.
+*   **Sistemas Bi-atómicos:** Las fórmulas duales de reconstrucción liberan al sistema de la rígida dependencia de un marco único y su dual canónico exacto.
+*   **Robustez ante Perturbaciones:** Permite diseñar esquemas de reconstrucción asimétricos que absorben perturbaciones métricas sin que la topología del espacio colapse.
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 2 DE CONCLUSIONES]
+- Destacar el triunfo analítico del operador M. En espacios de Krein, invertir operadores suele ser un dolor de cabeza porque el espectro cruza hacia los números negativos o complejos.
+- Nosotros logramos demostrar que M se mantiene firmemente positivo y acotado por múltiplos de la identidad. 
+- Concluir que esto significa que el algoritmo de reconstrucción que planteamos no es solo una curiosidad teórica, sino una herramienta matemáticamente segura y computable.
+</aside>
+
+
+<!-- ## Perspectivas y desarrollo futuro
+
+*   **Aprendizaje Automático (Machine Learning):** Provee la ruta algebraica para estabilizar redes neuronales que operan sobre Espacios de Krein de Núcleos Reproductores (RKKS) con kernels empíricos asimétricos o indefinidos.
+*   **Redes Neuronales de Grafos (GNNs):** Facilita el procesamiento de grafos heterofílicos sobre variedades pseudo-Riemannianas, evitando recortes espectrales destructivos al evaluar curvaturas mixtas.
+*   **Física Teórica y Señales:** Viabiliza la reconstrucción algorítmica robusta en el espaciotiempo de Minkowski y en el procesamiento de señales estocásticas extremas no gaussianas. -->
+
+<aside class="notes">
+[NOTAS PARA EL PRESENTADOR - SLIDE 3 DE CONCLUSIONES]
+- Aquí conectamos la matemática pura con la frontera de la tecnología actual.
+- Mencionar que en IA, los datos del mundo real a menudo generan matrices de distancia con autovalores negativos (kernels indefinidos). Forzarlos a ser positivos destruye información.
+- Los J-bimarcos ofrecen exactamente la arquitectura que el Deep Learning necesita hoy: un codificador (sucesión X) y un decodificador (sucesión Y) que pueden mapear estos espacios latentes indefinidos (RKKS) con total estabilidad.
+- Cerrar la ponencia enfatizando que la matemática de los espacios de Krein está lista para resolver los cuellos de botella de los modelos predictivos de la próxima década.
+</aside>
+
 ## Bibliografía
 
 
