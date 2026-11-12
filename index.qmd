@@ -24,6 +24,7 @@ format:
     slide-number: true
     mathjax: true
     center: true
+    scrollable: true
     fig-align: center
     highlight-style: github
 execute:
@@ -87,7 +88,7 @@ donde $(\mathcal{K}^{+}, [\cdot, \cdot])$ y $(\mathcal{K}^{-}, -[\cdot, \cdot])$
 
 ### La Simetría Fundamental $\mathcal{J}$
 
-La topología de un espacio de Krein se estabiliza a través de un operador que vincula la métrica indefinida con una métrica de Hilbert subyacente.
+<!-- La topología de un espacio de Krein se estabiliza a través de un operador que vincula la métrica indefinida con una métrica de Hilbert subyacente. -->
 
 Se define el operador de **simetría fundamental** $\mathcal{J} : \mathcal{K} \rightarrow \mathcal{K}$ como:
 $$ \mathcal{J}(k) = k^{+} - k^{-} \quad \forall k \in \mathcal{K}$$
@@ -338,7 +339,7 @@ $$ \alpha\|k\|_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][x_{n},k]\le\be
 
 # 3. Bimarcos en Espacios de Krein
 
-## Definición de Bimarco
+## Definición de $\mathcal{J}$-Bimarco
 
 <!-- La restricción de emplear una única sucesión $\{x_n\}_{n\in\mathbb{N}}$ limita la flexibilidad geométrica requerida en ciertos problemas de reconstrucción. La generalización natural consiste en desacoplar el producto $[k,x_{n}][x_{n},k]$ utilizando dos sucesiones distintas. -->
 
@@ -351,7 +352,7 @@ $$ \alpha||k||_{\mathcal{J}}^{2}\le\sum_{n\in\mathbb{N}}[k,x_{n}][y_{n},k]\le\be
 entonces se dice que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco para $\mathcal{K}$.
 </div>
 
-+ Además, si se cumple utilizando el $\mathcal{J}$-producto interno directamente, se dice que es un bimarco para el espacio de Hilbert asociado $(\mathcal{K},[\cdot,\cdot]_{\mathcal{J}})$.
+<!-- + Además, si se cumple utilizando el $\mathcal{J}$-producto interno directamente, se dice que es un bimarco para el espacio de Hilbert asociado $(\mathcal{K},[\cdot,\cdot]_{\mathcal{J}})$. -->
 + Si $\alpha = \beta$, entonces $(\mathcal{X},\mathcal{Y})$ es un $\mathcal{J}$-bimarco ajustado
 
 
@@ -520,9 +521,11 @@ Si $\mathcal{X}=\{x_{n}\}_{n\in\mathbb{N}}$ y $\mathcal{Z}=\{z_{n}\}_{n\in\mathb
 - Sin embargo, si ambos marcos forman un bimarco entre sí, su interacción está acotada. Esto garantiza que la estructura resultante (X+Z) sea matemáticamente robusta.
 </aside>
 
-## Demostración:
+#### Demostración:
 
-Para establecer la demostración, se parte de las condiciones de estabilidad individuales y conjuntas. Puesto que $\mathcal{X} = \{x_n\}_{n\in\mathbb{N}}$ y $\mathcal{Z} = \{z_n\}_{n\in\mathbb{N}}$ son $\mathcal{J}$-marcos para el espacio $\mathcal{K}$, y $(\mathcal{X}, \mathcal{Z})$ conforma un $\mathcal{J}$-bimarco, existen constantes reales positivas $a, b, c, d, e, f$ tales que para todo $z \in \mathcal{K}$ se satisfacen las siguientes desigualdades:
+<!-- Para establecer la demostración, se parte de las condiciones de estabilidad individuales y conjuntas.  -->
+
+Puesto que $\mathcal{X} = \{x_n\}_{n\in\mathbb{N}}$ y $\mathcal{Z} = \{z_n\}_{n\in\mathbb{N}}$ son $\mathcal{J}$-marcos para el espacio $\mathcal{K}$, y $(\mathcal{X}, \mathcal{Z})$ conforma un $\mathcal{J}$-bimarco, existen constantes reales positivas $a, b, c, d, e, f$ tales que para todo $z \in \mathcal{K}$ se satisfacen las siguientes desigualdades:
 
 $$ a\|z\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} |[z, x_n]|^2 \le b\|z\|_{\mathcal{J}}^2 $$
 $$ c\|z\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} |[z, z_n]|^2 \le d\|z\|_{\mathcal{J}}^2 $$
@@ -538,15 +541,17 @@ $$ e\|z\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [x_n, z][z, z_n] \le f\|z\|_
 
 -------
 
-Para evaluar si la sucesión suma $\mathcal{X} + \mathcal{Z} = \{x_n + z_n\}_{n\in\mathbb{N}}$ es un $\mathcal{J}$-marco, se analiza algebraicamente el término general. Para cada $n \in \mathbb{N}$, la expansión del producto interno cruzado resulta en:
+<!-- Para evaluar si la sucesión suma $\mathcal{X} + \mathcal{Z} = \{x_n + z_n\}_{n\in\mathbb{N}}$ es un $\mathcal{J}$-marco, se analiza algebraicamente el término general.  -->
+
+Para cada $n \in \mathbb{N}$, la expansión del producto interno cruzado resulta en:
 
 $$ [x_n + z_n, z][z, x_n + z_n] = ([x_n, z] + [z_n, z])([z, x_n] + [z, z_n]) $$
 
-Al aplicar la propiedad distributiva de la forma sesquilineal, se obtiene:
+<!-- Al aplicar la propiedad distributiva de la forma sesquilineal, se obtiene: -->
 
 $$ = [x_n, z][z, x_n] + [x_n, z][z, z_n] + [z_n, z][z, x_n] + [z_n, z][z, z_n] $$
 
-Reconociendo la identidad de los módulos al cuadrado en los extremos, la expresión se simplifica a:
+<!-- Reconociendo la identidad de los módulos al cuadrado en los extremos, la expresión se simplifica a: -->
 
 $$ = |[z, x_n]|^2 + [x_n, z][z, z_n] + [z_n, z][z, x_n] + |[z, z_n]|^2 $$
 
@@ -559,13 +564,16 @@ $$ = |[z, x_n]|^2 + [x_n, z][z, z_n] + [z_n, z][z, x_n] + |[z, z_n]|^2 $$
 </aside>
 
 
----------- 
 
-Se aplica la suma sobre todo $n \in \mathbb{N}$:
+<!-- Se aplica la suma sobre todo $n \in \mathbb{N}$: -->
+
+Por lo tanto:
 
 $$ \sum_{n\in\mathbb{N}} |[z, x_n + z_n]|^2 = \sum_{n\in\mathbb{N}} |[z, x_n]|^2 + \sum_{n\in\mathbb{N}} [x_n, z][z, z_n] + \sum_{n\in\mathbb{N}} [z_n, z][z, x_n] + \sum_{n\in\mathbb{N}} |[z, z_n]|^2 $$
 
-Evaluando las inecuaciones establecidas en la hipótesis, los términos cruzados centrales aportan cada uno un factor acotado por $[e, f]$. Sumando todas las cotas, se deduce que para todo $z \in \mathcal{K}$:
+<!-- Evaluando las inecuaciones establecidas en la hipótesis, los términos cruzados centrales aportan cada uno un factor acotado por $[e, f]$. Sumando todas las cotas,  -->
+
+se deduce que para todo $z \in \mathcal{K}$:
 
 $$ (a + 2e + c)\|z\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} |[z, x_n + z_n]|^2 \le (b + 2f + d)\|z\|_{\mathcal{J}}^2 $$
 
@@ -584,7 +592,7 @@ Lo cual demuestra que $\mathcal{X} + \mathcal{Z}$ constituye un $\mathcal{J}$-ma
 
 ## Propiedades Algebraicas de los Bimarcos
 
-La estructura del producto interno cruzado confiere a los bimarcos propiedades de simetría y escalamiento que facilitan la manipulación de las sucesiones.
+<!-- La estructura del producto interno cruzado confiere a los bimarcos propiedades de simetría y escalamiento que facilitan la manipulación de las sucesiones. -->
 
 <div class="theorem-box">
 **Proposición:**
@@ -603,15 +611,15 @@ Sea $(\mathcal{K} = \mathcal{K}^+[+]\mathcal{K}^-, [\cdot,\cdot], \mathcal{J})$ 
 </aside>
 
 
-## Demostración (i): Simetría del Bimarco
+#### Demostración (i):
 
 Se asume por hipótesis que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco para $\mathcal{K}$. En consecuencia, existen constantes reales $\alpha, \beta > 0$ tales que para todo vector $k \in \mathcal{K}$:
 
 $$ \alpha\|k\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] \le \beta\|k\|_{\mathcal{J}}^2 $$
 
-Dado que la norma $\|k\|_{\mathcal{J}}^2$ es real (y no negativa) por definición del espacio de Hilbert inducido, se deduce que la sumatoria central debe estar confinada al cuerpo de los números reales. Es decir:
+<!-- Dado que la norma $\|k\|_{\mathcal{J}}^2$ es real (y no negativa) por definición del espacio de Hilbert inducido, se deduce que la sumatoria central debe estar confinada al cuerpo de los números reales. Es decir:
 
-$$ \left( \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] \right) \in \mathbb{R} $$
+$$ \left( \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] \right) \in \mathbb{R} $$ -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 2]
@@ -621,17 +629,20 @@ $$ \left( \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] \right) \in \mathbb{R} $$
 </aside>
 
 
---------------- 
 
-Aprovechando que la sumatoria pertenece a los números reales, esta coincide con su propio conjugado complejo. Aplicando las propiedades del producto interno, se obtiene:
+<!-- Aprovechando que la sumatoria pertenece a los números reales, esta coincide con su propio conjugado complejo.  -->
+
+Aplicando las propiedades del producto interno, se obtiene:
 
 $$ \overline{\sum_{n\in\mathbb{N}} [k, x_n][y_n, k]} = \sum_{n\in\mathbb{N}} \overline{[k, x_n][y_n, k]} = \sum_{n\in\mathbb{N}} \overline{[k, x_n]} \, \overline{[y_n, k]} $$
 
-Por la simetría conjugada del producto interno ($\overline{[u,v]} = [v,u]$), los términos se invierten:
+<!-- Por la simetría conjugada del producto interno ($\overline{[u,v]} = [v,u]$), los términos se invierten: -->
 
 $$ = \sum_{n\in\mathbb{N}} [x_n, k][k, y_n] = \sum_{n\in\mathbb{N}} [y_n, k][k, x_n] $$
 
-Sustituyendo esta equivalencia en la desigualdad original, se concluye que:
+<!-- Sustituyendo esta equivalencia en la desigualdad original,  -->
+
+Se concluye que:
 
 $$ \alpha\|k\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [y_n, k] [k, x_n] \le \beta\|k\|_{\mathcal{J}}^2, \quad \forall k \in \mathcal{K} $$
 
@@ -646,17 +657,22 @@ Por lo tanto, $(\mathcal{Y}, \mathcal{X})$ es un $\mathcal{J}$-bimarco de $\math
 </aside>
 
 
-## Demostración (ii): Escalamiento del Bimarco
+## Demostración (ii):
 
-Sea $\alpha \in \mathbb{C} \setminus \{0\}$. Se evalúa el producto cruzado para el par escalado $(\alpha\mathcal{X}, \alpha\mathcal{Y})$. Aplicando la linealidad en la primera componente y la linealidad conjugada en la segunda:
+Sea $\alpha \in \mathbb{C} \setminus \{0\}$. Se evalúa el producto cruzado para el par escalado $(\alpha\mathcal{X}, \alpha\mathcal{Y})$: 
 
 $$ [k, \alpha x_n] [\alpha y_n, k] = \bar{\alpha} [k, x_n] \alpha [y_n, k] = |\alpha|^2 [k, x_n] [y_n, k] $$
 
-Sometiendo esta expresión a la sumatoria sobre todo $n \in \mathbb{N}$, el factor constante $|\alpha|^2$ puede extraerse:
+
+Tomando la suma:
+
+<!-- Sometiendo esta expresión a la sumatoria sobre todo $n \in \mathbb{N}$, el factor constante $|\alpha|^2$ puede extraerse: -->
 
 $$ \sum_{n\in\mathbb{N}} [k, \alpha x_n] [\alpha y_n, k] = |\alpha|^2 \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] $$
 
-Multiplicando toda la desigualdad del bimarco original por el escalar positivo $|\alpha|^2$, se sigue que para todo $k \in \mathcal{K}$:
+Luego:
+
+<!-- Multiplicando toda la desigualdad del bimarco original por el escalar positivo $|\alpha|^2$, se sigue que para todo $k \in \mathcal{K}$: -->
 
 $$ |\alpha|^2 \alpha_0 \|k\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [k, \alpha x_n] [\alpha y_n, k] \le |\alpha|^2 \beta_0 \|k\|_{\mathcal{J}}^2 $$
 
@@ -671,9 +687,9 @@ Por consiguiente, el par $(\alpha\mathcal{X}, \alpha\mathcal{Y})$ es un $\mathca
 - Concluir que el nuevo sistema tiene las mismas propiedades de estabilidad, pero su energía global ha sido amplificada o atenuada por el factor cuadrado de alfa.
 </aside>
 
+-----------
 
-
-## Equivalencia Estructural bajo $\mathcal{J}$
+<!-- ## Equivalencia Estructural bajo $\mathcal{J}$ -->
 
 La simetría fundamental permite transferir la estructura topológica de los bimarcos desde el espacio con métrica indefinida hacia el espacio de Hilbert asociado, y viceversa.
 
@@ -694,7 +710,7 @@ Sea $(\mathcal{K} = \mathcal{K}^+[+]\mathcal{K}^-, [\cdot,\cdot], \mathcal{J})$ 
 </aside>
 
 
-## Demostración (i) $\Rightarrow$ (ii):
+#### Demostración (i) $\Rightarrow$ (ii):
 
 Se asume que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco para el espacio $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$. Por definición, existen constantes $\alpha, \beta > 0$ tales que, para todo vector $k \in \mathcal{K}$, se cumple el acotamiento:
 
@@ -714,11 +730,15 @@ $$ \alpha\|\mathcal{J}(k)\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [\mathcal{
 
 ------------
 
-Para simplificar la expresión obtenida, se usan las propiedades isométrica y autoadjunta del operador $\mathcal{J}$. Primero, para la norma inducida se cumple que:
+Simplificando:
+
+<!-- Para simplificar la expresión obtenida, se usan las propiedades isométrica y autoadjunta del operador $\mathcal{J}$. Primero, para la norma inducida se cumple que: -->
 
 $$ \|\mathcal{J}(k)\|_{\mathcal{J}}^2 = [\mathcal{J}(k), \mathcal{J}(k)]_{\mathcal{J}} = [\mathcal{J}(\mathcal{J}(k)), \mathcal{J}(k)] = [k, \mathcal{J}(k)] = [\mathcal{J}(k), k] = [k, k]_{\mathcal{J}} = \|k\|_{\mathcal{J}}^2 $$
 
-Adicionalmente, por la simetría de la forma sesquilineal respecto a $\mathcal{J}$, los factores del producto cruzado se transforman de la siguiente manera:
+Adicionalmente:
+
+<!-- por la simetría de la forma sesquilineal respecto a $\mathcal{J}$, los factores del producto cruzado se transforman de la siguiente manera: -->
 
 $$ [\mathcal{J}(k), x_n] = [k, \mathcal{J}(x_n)] = [\mathcal{J}(x_n), k] \quad \text{y} \quad [y_n, \mathcal{J}(k)] = [\mathcal{J}(y_n), k] = [k, \mathcal{J}(y_n)] $$
 
@@ -736,22 +756,29 @@ Por lo tanto, el par $(\mathcal{J}\mathcal{X}, \mathcal{J}\mathcal{Y})$ constitu
 - Al reemplazar estos términos en la sumatoria, la expresión resultante es exactamente la definición de un bimarco clásico en el espacio de Hilbert, operando sobre las sucesiones transformadas JX y JY. Queda así demostrada la primera implicación.
 </aside>
 
+----------------
 
-## Demostración (ii) $\Rightarrow$ (i):
+#### Demostración (ii) $\Rightarrow$ (i):
 
-Se asume ahora que $(\mathcal{J}\mathcal{X}, \mathcal{J}\mathcal{Y})$ es un bimarco para el espacio de Hilbert $(\mathcal{K}, [\cdot,\cdot]_{\mathcal{J}})$. Por lo tanto, existen constantes $a, b > 0$ tales que, para todo $k \in \mathcal{K}$:
+Se asume ahora que $(\mathcal{J}\mathcal{X}, \mathcal{J}\mathcal{Y})$ es un bimarco para el espacio de Hilbert $(\mathcal{K}, [\cdot,\cdot]_{\mathcal{J}})$. 
+
+<!-- Por lo tanto, existen constantes $a, b > 0$ tales que, para todo $k \in \mathcal{K}$: -->
 
 $$ a\|k\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [\mathcal{J}(x_n), k] [k, \mathcal{J}(y_n)] \le b\|k\|_{\mathcal{J}}^2 $$
 
-Evaluando nuevamente la expresión para un vector $\mathcal{J}(k)$ y aplicando las propiedades autoadjuntas e involutivas de $\mathcal{J}$ sobre el producto interno:
+Evaluando nuevamente la expresión para un vector $\mathcal{J}(k)$ 
+
+<!-- y aplicando las propiedades autoadjuntas e involutivas de $\mathcal{J}$ sobre el producto interno: -->
 
 $$ a\|\mathcal{J}(k)\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [\mathcal{J}(x_n), \mathcal{J}(k)] [\mathcal{J}(k), \mathcal{J}(y_n)] \le b\|\mathcal{J}(k)\|_{\mathcal{J}}^2 $$
 
-Dado que $\|\mathcal{J}(k)\|_{\mathcal{J}} = \|k\|_{\mathcal{J}}$, la desigualdad se reduce a su forma fundamental:
+Dado que $\|\mathcal{J}(k)\|_{\mathcal{J}} = \|k\|_{\mathcal{J}}$: 
+
+<!-- la desigualdad se reduce a su forma fundamental: -->
 
 $$ a\|k\|_{\mathcal{J}}^2 \le \sum_{n\in\mathbb{N}} [k, x_n] [y_n, k] \le b\|k\|_{\mathcal{J}}^2, \quad \forall k \in \mathcal{K} $$
 
-Se concluye así que $(\mathcal{X}, \mathcal{Y})$ es un J-bimarco para el espacio de Krein $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$, completando la equivalencia del teorema.
+Se concluye así que $(\mathcal{X}, \mathcal{Y})$ es un $\mathcal{J}$-bimarco para el espacio de Krein $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$, completando la demostración del teorema.
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 4]
@@ -763,9 +790,9 @@ Se concluye así que $(\mathcal{X}, \mathcal{Y})$ es un J-bimarco para el espaci
 </aside>
 
 
-## Forma Sesquilineal Asociada
+## Resultados adicionales
 
-Para construir el operador de reconstrucción, se requiere primero garantizar la estabilidad de una forma algebraica subyacente sobre el espacio de Krein.
+<!-- Para construir el operador de reconstrucción, se requiere primero garantizar la estabilidad de una forma algebraica subyacente sobre el espacio de Krein. -->
 
 <div class="theorem-box">
 **Proposición:**
@@ -774,8 +801,8 @@ $$ \psi(k, h) = \sum_{n\in\mathbb{N}} [k, x_n]_{\mathcal{J}} [y_n, h]_{\mathcal{
 está bien definida y constituye una forma sesquilineal acotada.
 </div>
 
-*Idea de la demostración:*
-Se comprueba que la sucesión de sumas parciales converge absolutamente empleando la generalización de la identidad de polarización. El acotamiento superior se hereda de manera directa de la cota $\beta$ del $\mathcal{J}$-bimarco, garantizando que el módulo de la forma quede acotado estrictamente por las normas de los vectores: $|\psi(k, h)| \le 2\beta \|k\|_{\mathcal{J}} \|h\|_{\mathcal{J}}$.
+<!-- *Idea de la demostración:*
+Se comprueba que la sucesión de sumas parciales converge absolutamente empleando la generalización de la identidad de polarización. El acotamiento superior se hereda de manera directa de la cota $\beta$ del $\mathcal{J}$-bimarco, garantizando que el módulo de la forma quede acotado estrictamente por las normas de los vectores: $|\psi(k, h)| \le 2\beta \|k\|_{\mathcal{J}} \|h\|_{\mathcal{J}}$. -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 1]
@@ -785,9 +812,9 @@ Se comprueba que la sucesión de sumas parciales converge absolutamente empleand
 </aside>
 
 
-## El Operador $\mathcal{J}$-Bimarco
+<!-- ## El Operador $\mathcal{J}$-Bimarco -->
 
-Con el acotamiento de la forma sesquilineal garantizado, el Teorema de Representación de Riesz asegura la existencia de un único operador acotado $T$ en el espacio de Hilbert inducido. 
+<!-- Con el acotamiento de la forma sesquilineal garantizado, el Teorema de Representación de Riesz asegura la existencia de un único operador acotado $T$ en el espacio de Hilbert inducido.  -->
 
 <div class="theorem-box">
 **Definición (Operador $\mathcal{J}$-bimarco):**
@@ -802,7 +829,7 @@ $$ \mathcal{M}(k) = \sum_{n\in\mathbb{N}} [k, x_n] \mathcal{J}(y_n) $$
 </aside>
 
 
-## Bimarcos Ajustados
+## Resultados adicionales
 
 
 <div class="theorem-box">
@@ -810,8 +837,8 @@ $$ \mathcal{M}(k) = \sum_{n\in\mathbb{N}} [k, x_n] \mathcal{J}(y_n) $$
 Sea $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ un espacio de Krein. Si el par $(\mathcal{X}, \mathcal{Y})$ constituye un $\mathcal{J}$-bimarco $\lambda$-ajustado (es decir, las cotas coinciden de forma que $\lambda = \beta$), entonces su operador marco asociado se reduce a $\mathcal{M} = \lambda I$.
 </div>
 
-*Idea de la demostración:*
-Se evalúa el producto interno $[\mathcal{M}(k), k]_{\mathcal{J}}$. Al expandirlo, la condición de bimarco ajustado colapsa la sumatoria a $\lambda \|k\|_{\mathcal{J}}^2$, lo cual es geométricamente equivalente a $[\lambda I(k), k]_{\mathcal{J}}$. Restando ambos términos, se demuestra que la forma sesquilineal residual es nula para todo $k \in \mathcal{K}$, lo que obliga al operador a ser $\mathcal{M} = \lambda I$.
+<!-- *Idea de la demostración:*
+Se evalúa el producto interno $[\mathcal{M}(k), k]_{\mathcal{J}}$. Al expandirlo, la condición de bimarco ajustado colapsa la sumatoria a $\lambda \|k\|_{\mathcal{J}}^2$, lo cual es geométricamente equivalente a $[\lambda I(k), k]_{\mathcal{J}}$. Restando ambos términos, se demuestra que la forma sesquilineal residual es nula para todo $k \in \mathcal{K}$, lo que obliga al operador a ser $\mathcal{M} = \lambda I$. -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 3]
@@ -822,9 +849,9 @@ Se evalúa el producto interno $[\mathcal{M}(k), k]_{\mathcal{J}}$. Al expandirl
 
 
 <!-- ## Conservación de la Estabilidad -->
----------------- 
 
-Para sistemas de reconstrucción que no son ajustados, es importante mostrar que el operador global preserva las cotas de estabilidad.
+
+<!-- Para sistemas de reconstrucción que no son ajustados, es importante mostrar que el operador global preserva las cotas de estabilidad. -->
 
 <div class="theorem-box">
 **Proposición:**
@@ -832,8 +859,8 @@ Sea $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ un espacio de Krein y $(\mathcal
 $$ \lambda \|k\|_{\mathcal{J}}^2 \le [\mathcal{M}(k), k]_{\mathcal{J}} \le \beta \|k\|_{\mathcal{J}}^2 $$
 </div>
 
-*Idea de la demostración:*
-Se sustituye la definición explícita de la sumatoria de $\mathcal{M}(k)$ dentro del producto interno $[\mathcal{M}(k), k]_{\mathcal{J}}$. Empleando las propiedades autoadjuntas e involutivas de $\mathcal{J}$ desarrolladas previamente, la expresión se reduce de manera exacta a la suma cruzada subyacente $\sum [k, x_n][y_n, k]$, la cual, por la premisa de ser un $\mathcal{J}$-bimarco, se encuentra ya acotada estrictamente por $\lambda$ y $\beta$.
+<!-- *Idea de la demostración:*
+Se sustituye la definición explícita de la sumatoria de $\mathcal{M}(k)$ dentro del producto interno $[\mathcal{M}(k), k]_{\mathcal{J}}$. Empleando las propiedades autoadjuntas e involutivas de $\mathcal{J}$ desarrolladas previamente, la expresión se reduce de manera exacta a la suma cruzada subyacente $\sum [k, x_n][y_n, k]$, la cual, por la premisa de ser un $\mathcal{J}$-bimarco, se encuentra ya acotada estrictamente por $\lambda$ y $\beta$. -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 4]
@@ -844,9 +871,9 @@ Se sustituye la definición explícita de la sumatoria de $\mathcal{M}(k)$ dentr
 
 <!-- ## Condicionamiento Espectral del Operador -->
 
---------------------- 
+<!-- ---------------------  -->
 
-El acotamiento escalar evaluado vector a vector se puede abstraer a una desigualdad global de operadores.
+<!-- El acotamiento escalar evaluado vector a vector se puede abstraer a una desigualdad global de operadores. -->
 
 <div class="theorem-box">
 **Proposición:**
@@ -854,8 +881,8 @@ Bajo las mismas hipótesis geométricas en el espacio $(\mathcal{K}, [\cdot,\cdo
 $$ \lambda I \le \mathcal{M} \le \beta I $$
 </div>
 
-*Idea de la demostración:*
-Sabiendo que el operador identidad $I$ es autoadjunto respecto a la métrica inducida, la inecuación escalar de la proposición anterior se puede reescribir aislando el vector: $[\lambda I(k), k]_{\mathcal{J}} \le [\mathcal{M}(k), k]_{\mathcal{J}} \le [\beta I(k), k]_{\mathcal{J}}$. Dado que esta relación de orden se mantiene para  todo vector $k \in \mathcal{K}$, el orden se transfiere a los operadores subyacentes.
+<!-- *Idea de la demostración:*
+Sabiendo que el operador identidad $I$ es autoadjunto respecto a la métrica inducida, la inecuación escalar de la proposición anterior se puede reescribir aislando el vector: $[\lambda I(k), k]_{\mathcal{J}} \le [\mathcal{M}(k), k]_{\mathcal{J}} \le [\beta I(k), k]_{\mathcal{J}}$. Dado que esta relación de orden se mantiene para  todo vector $k \in \mathcal{K}$, el orden se transfiere a los operadores subyacentes. -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 5]
@@ -864,18 +891,18 @@ Sabiendo que el operador identidad $I$ es autoadjunto respecto a la métrica ind
 </aside>
 
 
-## Positividad e Invertibilidad
+## Resultados adicionales
 
-Para que un marco cumpla su propósito de recuperar señales, la transformación generada por $\mathcal{M}$ debe ser invertible.
+<!-- Para que un marco cumpla su propósito de recuperar señales, la transformación generada por $\mathcal{M}$ debe ser invertible. -->
 
 <div class="theorem-box">
-**Lema:**
+**Proposición:**
 El operador $\mathcal{J}$-bimarco $\mathcal{M}$ sobre el espacio $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ es un operador positivo e invertible.
 </div>
 
-*Idea de la demostración:*
+<!-- *Idea de la demostración:*
 1. **Positividad:** Como el límite inferior cumple $\lambda > 0$, la inecuación $\mathcal{M} \ge \lambda I$ garantiza que el producto interno generalizado $[\mathcal{M}(k), k]_{\mathcal{J}} \ge 0$ para todo vector no nulo.
-2. **Invertibilidad (Serie de Neumann):** A partir del límite superior, se estructura el operador residual $(I - \beta^{-1}\mathcal{M})$. Al calcular su norma suprema sobre la esfera unitaria, esta resulta estrictamente acotada por $1 - \frac{\lambda}{\beta} < 1$. Esta contracción topológica asegura la convergencia incondicional de la Serie de Neumann, probando rigurosamente la existencia del operador inverso $\mathcal{M}^{-1}$.
+2. **Invertibilidad (Serie de Neumann):** A partir del límite superior, se estructura el operador residual $(I - \beta^{-1}\mathcal{M})$. Al calcular su norma suprema sobre la esfera unitaria, esta resulta estrictamente acotada por $1 - \frac{\lambda}{\beta} < 1$. Esta contracción topológica asegura la convergencia incondicional de la Serie de Neumann, probando rigurosamente la existencia del operador inverso $\mathcal{M}^{-1}$. -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 6]
@@ -885,9 +912,9 @@ El operador $\mathcal{J}$-bimarco $\mathcal{M}$ sobre el espacio $(\mathcal{K}, 
 </aside>
 
 
-## Algoritmo de Reconstrucción
+<!-- ## Algoritmo de Reconstrucción -->
 
-Con la continuidad e invertibilidad de $\mathcal{M}$ demostradas, se establece el método analítico para recuperar cualquier vector del espacio a partir de sus componentes.
+<!-- Con la continuidad e invertibilidad de $\mathcal{M}$ demostradas, se establece el método analítico para recuperar cualquier vector del espacio a partir de sus componentes. -->
 
 <div class="theorem-box">
 **Teorema:**
@@ -898,8 +925,8 @@ Sea $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ un espacio de Krein y $(\mathcal
 2. $\quad k = \sum_{n\in\mathbb{N}} [k, \mathcal{M}^{-1}(x_n)] \mathcal{J}(y_n)$
 </div>
 
-*Idea de la demostración:*
-La prueba surge de la identidad del espacio $k = \mathcal{M}^{-1}(\mathcal{M}(k))$. Al sustituir el término interior $\mathcal{M}(k)$ por su forma explícita de sumatoria y aprovechar que el operador $\mathcal{M}^{-1}$ es lineal y continuo, este logra ingresar en la serie y operar directamente sobre $\mathcal{J}(y_n)$, produciendo la forma (1). Un desarrollo dual análogo sobre la identidad conmutada $\mathcal{M}(\mathcal{M}^{-1}(k))$ genera la forma equivalente (2).
+<!-- *Idea de la demostración:*
+La prueba surge de la identidad del espacio $k = \mathcal{M}^{-1}(\mathcal{M}(k))$. Al sustituir el término interior $\mathcal{M}(k)$ por su forma explícita de sumatoria y aprovechar que el operador $\mathcal{M}^{-1}$ es lineal y continuo, este logra ingresar en la serie y operar directamente sobre $\mathcal{J}(y_n)$, produciendo la forma (1). Un desarrollo dual análogo sobre la identidad conmutada $\mathcal{M}(\mathcal{M}^{-1}(k))$ genera la forma equivalente (2). -->
 
 <aside class="notes">
 [NOTAS PARA EL PRESENTADOR - SLIDE 7]
@@ -920,7 +947,9 @@ La transición de la teoría de marcos hacia los $\mathcal{J}$-bimarcos resuelve
 
 *  El $\mathcal{J}$-bimarco definido, puede mejorar las cotas de los $\mathcal{J}$-marcos de forma individual
 
-* El operador $\mathcal{M}$ mantiene un espectro estrictamente positivo, garantizando su invertibilidad mediante la convergencia de la Serie de Neumann.
+* El operador $\mathcal{M}$ es Positivo e invertible
+
+<!-- mantiene un espectro estrictamente positivo, garantizando su invertibilidad mediante la convergencia de la Serie de Neumann. -->
 
 <!-- La interacción cruzada actúa como un filtro estabilizador, estrechando las cotas espectrales (de $[1, 25]$ a $[3, 5]$) y optimizando el número de condición del sistema. -->
 
