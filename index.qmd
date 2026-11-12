@@ -917,8 +917,8 @@ El operador $\mathcal{J}$-bimarco $\mathcal{M}$ sobre el espacio $(\mathcal{K}, 
 <!-- Con la continuidad e invertibilidad de $\mathcal{M}$ demostradas, se establece el método analítico para recuperar cualquier vector del espacio a partir de sus componentes. -->
 
 <div class="theorem-box">
-**Teorema:**
-Sea $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ un espacio de Krein y $(\mathcal{X}, \mathcal{Y})$ un $\mathcal{J}$-bimarco estable con operador asociado $\mathcal{M}$. Para todo $k \in \mathcal{K}$, se cumple que:
+**Proposición:**
+Sea $(\mathcal{K}, [\cdot,\cdot], \mathcal{J})$ un espacio de Krein y $(\mathcal{X}, \mathcal{Y})$ un $\mathcal{J}$-bimarco con operador asociado $\mathcal{M}$. Para todo $k \in \mathcal{K}$, se cumple que:
 
 1. $\quad k = \sum_{n\in\mathbb{N}} [k, x_n] \mathcal{M}^{-1}\mathcal{J}(y_n)$
 
